@@ -3,9 +3,14 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Home from '../../components/pages/Home';
 import * as JsonActions from '../../actions/actions_json';
-
 import swaggerHelper from '../../helpers/swaggerHelper';
 
+const styles={
+  content:{
+    paddingTop:5,
+    backgroundColor:'#eaeaea',
+  }
+}
 
 class HomePage extends React.Component {
   static propTypes = {
@@ -35,7 +40,7 @@ class HomePage extends React.Component {
     }
 
     return (
-      <div>
+      <div style={styles.content}>
         <Home data={data} apiList={apiList}/>
       </div>
     );

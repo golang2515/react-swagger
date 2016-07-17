@@ -1,6 +1,13 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 
+const styles={
+  appBar:{
+    paddingLeft:0,
+    backgroundColor:'#7fdeea',
+  }
+}
+
 export default class Header extends React.Component {
   static propTypes = {
     name: React.PropTypes.string,
@@ -12,7 +19,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div style={{paddingLeft:250}}>
+      <div style={styles.appBar}>
           <AppBar
             title="react-swagger"
             iconClassNameRight="muidocs-icon-navigation-expand-more"

@@ -6,8 +6,9 @@ import NavBarApp from './base/NavBarApp';
 
 const styles={
   containner:{
-    paddingLeft:255,
+    //paddingLeft:255,
     paddingRight:5,
+    backgroundColor:'#eaeaea',
   }
 };
 
@@ -24,11 +25,11 @@ class Master extends React.Component {
     return (
       <div>
         <HeaderApp/>
-        <NavBarApp/>
+        
       	<div style={styles.containner}>
             {this.props.children}
         </div>
-        <FooterApp/>
+
       </div>
     );
   }

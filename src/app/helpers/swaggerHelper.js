@@ -20,12 +20,38 @@ export default class swaggerHelper {
 			        .value();
 			//console.log(results);
 
-			let results1=_.groupBy(results,function(value){
-				return value[0].apiName;
+
+			let keys = _.keys(jsonList);
+			let values = _.map(keys, function(k) { 
+				return {
+							apiUrl:k,
+							detail:jsonList[k]}; 
+					}
+			);
+			//var valueSlices = _.zip.apply(_, values);
+			//var maps=_.map(valueSlices, _.partial(_.object, keys));
+			//console.log(values);
+
+			let resultsGroups=_.groupBy(values,function(value){
+				let index=2;
+	        	if(value.apiUrl.indexOf('api')<0)
+	        		index=1;
+	        	let keyGroup=value.apiUrl.split("/")[index];
+	        	let keyGroups=keyGroup.split(":");
+				return keyGroups[0];
 			});
-			console.log(results1);
-			return results1;
-			//console.log(results1);
+
+
+			let key2s = _.keys(resultsGroups);
+  			let value2s = _.map(key2s, function(k) { 
+  					console.log(k);
+  					return {apiName:k,apiDetails:resultsGroups[k]}; 
+  				}
+  			);
+			console.log(value2s);
+
+			return value2s;
+			//console.log(resultsGroups);
         } catch (e) {
             console.log(e);
             return jsonList;
