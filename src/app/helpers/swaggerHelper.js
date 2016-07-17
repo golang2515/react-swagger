@@ -26,7 +26,7 @@ export default class swaggerHelper {
 
             let key2s = _.keys(resultsGroups);
             let value2s = _.map(key2s, function(k) {
-                console.log(k);
+                //console.log(k);
                 return { apiName: k, apiDetail: resultsGroups[k] };
             });
             return value2s;

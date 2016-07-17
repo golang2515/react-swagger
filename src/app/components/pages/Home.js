@@ -3,6 +3,7 @@ import Inspector from 'react-json-inspector';
 import JSONTree from 'react-json-tree';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import CardApi from '../api/CardApi';
+import CardApiFull from '../api/CardApiFull';
 
 const styles={
   homeContent:{
@@ -40,9 +41,24 @@ class Home extends React.Component {
   }
 
   renderApi(apiListMap){
-    console.log(apiListMap);
+    //console.log(apiListMap);
     return (apiListMap.map(function(api){
-      return (<CardApi apiName={api.apiName} key={api.apiName} api={api}/>)
+      return (
+        <CardApi 
+          apiName={api.apiName} 
+          key={api.apiName} 
+          api={api}/>)
+    }));
+  }
+
+  renderApiFull(apiListMap){
+    //console.log(apiListMap);
+    return (apiListMap.map(function(api){
+      return (
+        <CardApiFull 
+          apiName={api.apiName} 
+          key={api.apiName} 
+          api={api}/>)
     }));
   }
 
@@ -70,7 +86,7 @@ class Home extends React.Component {
                 style={styles.mainTab}>
                   <div 
                     style={styles.apiTab}>
-                      {this.renderApi(apiAll)}
+                      {this.renderApiFull(apiAll)}
                   </div>
               </Tab>
               <Tab 
