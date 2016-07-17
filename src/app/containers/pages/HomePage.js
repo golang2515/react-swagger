@@ -22,7 +22,7 @@ class HomePage extends React.Component {
   }
 
   componentWillMount(){
-      const url="http://api2.navigosamui.com/swagger/docs/v1";
+      const url="api/swagger.json";
       this.props.actions.fetchJsonData(url);
   }
 
