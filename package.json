@@ -1,7 +1,7 @@
 {
   "name": "react-swagger",
   "version": "0.0.1",
-  "description": "react,asp.net,swagger,materil-ui",
+  "description": "reactjs,asp.net,swagger,materil-ui",
   "scripts": {
     "start": "gulp"
   },
