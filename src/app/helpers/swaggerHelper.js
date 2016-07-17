@@ -10,7 +10,12 @@ export default class swaggerHelper {
             results = _.chain(jsonList)
 			        .keys()
 			        .map(function(key) {
-			            return [{apiUrl:key,apiName:key.split("/")[2],value:jsonList[key]}];
+			        	let index=2;
+			        	if(key.indexOf('api')<0)
+			        		index=1;
+			        	let keyGroup=key.split("/")[index];
+			        	let keyGroups=keyGroup.split(":");
+			            return [{apiUrl:key,apiName:keyGroups[0],value:jsonList[key]}];
 			        })
 			        .value();
 			//console.log(results);
