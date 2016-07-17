@@ -22,7 +22,7 @@ class HomePage extends React.Component {
   }
 
   componentWillMount(){
-      const url="api/swagger.json";
+      const url="http://api2.navigosamui.com/swagger/docs/v1";
       this.props.actions.fetchJsonData(url);
   }
 
@@ -32,16 +32,18 @@ class HomePage extends React.Component {
 
     let data=this.props.jsonSwagger.data;
     let apiList=[];
+    let apiAll=[];
     if(this.props.jsonSwagger.data){
       let paths=this.props.jsonSwagger.data.paths;
       apiList=swaggerHelper.generateApiList(paths);
+      apiAll=swaggerHelper.generateApiAll(paths);
     }else{
       return (<div>Loading</div>);
     }
 
     return (
       <div style={styles.content}>
-        <Home data={data} apiList={apiList}/>
+        <Home data={data} apiList={apiList} apiAll={apiAll}/>
       </div>
     );
   }

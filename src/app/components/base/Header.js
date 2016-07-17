@@ -3,8 +3,8 @@ import AppBar from 'material-ui/AppBar';
 
 const styles={
   appBar:{
-    paddingLeft:0,
-    backgroundColor:'#7fdeea',
+    paddingLeft:255,
+/*    backgroundColor:'#7fdeea',*/
   }
 }
 

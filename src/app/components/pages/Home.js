@@ -39,9 +39,9 @@ class Home extends React.Component {
     super(props);
   }
 
-  renderApi(apiList){
-    console.log(apiList);
-    return (apiList.map(function(api){
+  renderApi(apiListMap){
+    console.log(apiListMap);
+    return (apiListMap.map(function(api){
       return (<CardApi apiName={api.apiName} key={api.apiName} api={api}/>)
     }));
   }
@@ -49,7 +49,7 @@ class Home extends React.Component {
   render() {
     const data=this.props.data;
     const apiList=this.props.apiList;
-    
+    const apiAll=this.props.apiAll;
 
     return (
       <div 
@@ -66,7 +66,15 @@ class Home extends React.Component {
                   </div>
               </Tab>
               <Tab 
-                label="Api"  
+                label="All"  
+                style={styles.mainTab}>
+                  <div 
+                    style={styles.apiTab}>
+                      {this.renderApi(apiAll)}
+                  </div>
+              </Tab>
+              <Tab 
+                label="Api Group"  
                 style={styles.mainTab}>
                   <div 
                     style={styles.apiTab}>
