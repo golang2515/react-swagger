@@ -20,12 +20,15 @@ class CardApi extends React.Component {
   renderFunc(api){
     return (api.apiDetail.map(function(func){
       let keys = _.keys(func.detail);
-      console.log(keys);
-      return (
-        <ListItem key={func.apiUrl}
-          primaryText={func.apiUrl}
-          leftIcon={<ActionGrade color={pinkA200} />}/>
-      )
+      if(keys.length==1){
+        return (
+          <ListItem key={func.apiUrl}
+            primaryText={func.apiUrl}
+            leftIcon={<ActionGrade color={pinkA200} />}/>
+        )
+      }else{
+        console.log(func.apiUrl);
+      }
     }));
   }
 
@@ -36,6 +39,7 @@ class CardApi extends React.Component {
       <Card style={{width:'400px',marginTop:10}}>
           <CardHeader
             title={apiName}
+            titleStyle={{paddingTop:7}}
             avatar="img/swagger-logo.png"
             actAsExpander={true}
       		  showExpandableButton={true}

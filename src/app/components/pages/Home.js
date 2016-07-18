@@ -11,13 +11,22 @@ const styles={
     width:'100%',
   },
   tabs:{
+
   },
   mainTab:{
     backgroundColor:'#FFFFFF',
     color:'#000000',
+    display:'inline',
   },
   jsonTab:{
     display:'flex',
+    padding:15,
+  },
+  apiAllTab:{
+    display:'flex',
+    //flexFlow: 'row wrap',
+    flexDirection:'column',
+    justifyContent:'space-around',
     padding:15,
   },
   apiTab:{
@@ -85,7 +94,7 @@ class Home extends React.Component {
                 label="All"  
                 style={styles.mainTab}>
                   <div 
-                    style={styles.apiTab}>
+                    style={styles.apiAllTab}>
                       {this.renderApiFull(apiAll)}
                   </div>
               </Tab>

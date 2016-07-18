@@ -17,12 +17,13 @@ class CardApiFull extends React.Component {
   	let apiName=this.props.apiName;
   	//let title="this.props.title";
     return (
-      <Card style={{width:'400px',marginTop:10}}>
+      <Card style={{marginTop:10}}>
           <CardHeader
             title={apiName}
             avatar="img/swagger-logo.png"
             actAsExpander={true}
-      		showExpandableButton={true}
+            titleStyle={{paddingTop:7,fontSize:'12pt'}}
+      		  showExpandableButton={true}
           />
           <CardText expandable={true}>
           	<div>

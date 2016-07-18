@@ -1,5 +1,6 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
+import AppBar from 'material-ui/AppBar'
+import FlatButton from 'material-ui/FlatButton';
 
 const styles={
   appBar:{
@@ -22,8 +23,13 @@ export default class Header extends React.Component {
       <div style={styles.appBar}>
           <AppBar
             title="react-swagger"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
             zDepth={2}
+            iconElementRight={
+              <div>
+                <FlatButton label="Login"  style={{color:'#FFFFFF'}}/>
+                <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
+              </div>
+            }
           />
       </div>
     );
