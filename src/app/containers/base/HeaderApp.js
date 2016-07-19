@@ -1,10 +1,14 @@
 import React from 'react';
 import Header from '../../components/base/Header';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as LayoutActions from '../../actions/actions_layout';
 
 class HeaderApp extends React.Component {
   static propTypes = {
     name: React.PropTypes.string,
   };
+
 
   constructor(props) {
     super(props);
@@ -12,8 +16,23 @@ class HeaderApp extends React.Component {
 
   render() {
     return (
-      <Header/>
+      <Header layoutAction={this.props.actions.layoutAction} layout={this.props.layout}/>
     );
   }
 }
-export default HeaderApp
+
+function mapStateToProps(state) {
+  return {
+    layout:state.layout
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions:{
+        layoutAction:bindActionCreators(LayoutActions, dispatch)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderApp);

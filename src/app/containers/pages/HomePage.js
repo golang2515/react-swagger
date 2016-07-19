@@ -1,14 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Paper from 'material-ui/Paper';
 import Home from '../../components/pages/Home';
 import * as JsonActions from '../../actions/actions_json';
+import * as LayoutActions from '../../actions/actions_layout';
 import swaggerHelper from '../../helpers/swaggerHelper';
 
 const styles={
-  content:{
-    paddingTop:5,
+  paperContent:{
+    paddingTop:10,
     backgroundColor:'#eaeaea',
+    minHeight:'calc(100vh - 85px)',
   }
 }
 
@@ -22,8 +25,9 @@ class HomePage extends React.Component {
   }
 
   componentWillMount(){
-      const url="api/swagger.json";
-      this.props.actions.fetchJsonData(url);
+      //const url="api/swagger.json";
+      const url="http://api2.navigosamui.com/swagger/docs/v1";
+      this.props.actions.jsonAction.fetchJsonData(url);
   }
 
   render() {
@@ -42,21 +46,25 @@ class HomePage extends React.Component {
     }
 
     return (
-      <div style={styles.content}>
-        <Home data={data} apiList={apiList} apiAll={apiAll}/>
-      </div>
+      <Paper style={styles.paperContent}>
+          <Home data={data} apiList={apiList} apiAll={apiAll}/>
+      </Paper>
     );
   }
 }
 function mapStateToProps(state) {
   return {
-    jsonSwagger: state.jsonSwagger
+    jsonSwagger: state.jsonSwagger,
+    //layout:state.layout
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(JsonActions, dispatch)
+    actions:{
+        jsonAction:bindActionCreators(JsonActions, dispatch),
+        layoutAction:bindActionCreators(LayoutActions, dispatch)
+    }
   }
 }
 

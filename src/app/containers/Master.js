@@ -1,13 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 
 import FooterApp from './base/FooterApp';
 import HeaderApp from './base/HeaderApp';
 import NavBarApp from './base/NavBarApp';
 
-const styles={
+let styles={
   containner:{
     paddingLeft:255,
-    paddingRight:5,
+    paddingRight:0,
   }
 };
 
@@ -21,16 +23,28 @@ class Master extends React.Component {
   }
 
   render() {
+    let containner={
+        paddingLeft:this.props.layout.data.paddingLeft,
+        paddingRight:0,
+      }
     return (
       <div>
         <HeaderApp/>
-        <NavBarApp/>
-      	<div style={styles.containner}>
+        <div>
+          <NavBarApp/>
+        </div>
+      	<div style={containner}>
             {this.props.children}
         </div>
-        <FooterApp/>
       </div>
     );
   }
 }
-export default Master
+
+function mapStateToProps(state) {
+  return {
+    layout:state.layout
+  };
+}
+
+export default connect(mapStateToProps)(Master);

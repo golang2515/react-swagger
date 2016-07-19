@@ -26,8 +26,6 @@ class CardApi extends React.Component {
             primaryText={func.apiUrl}
             leftIcon={<ActionGrade color={pinkA200} />}/>
         )
-      }else{
-        console.log(func.apiUrl);
       }
     }));
   }

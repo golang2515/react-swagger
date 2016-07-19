@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../../components/base/NavBar';
+import {connect} from 'react-redux';
 
 class NavBarApp extends React.Component {
   static propTypes = {
@@ -12,9 +13,15 @@ class NavBarApp extends React.Component {
 
   render() {
     return (
-      <NavBar/>
+      <NavBar layout={this.props.layout}/>
     );
   }
 }
 
-export default NavBarApp
+function mapStateToProps(state) {
+  return {
+    layout:state.layout
+  };
+}
+
+export default connect(mapStateToProps)(NavBarApp);

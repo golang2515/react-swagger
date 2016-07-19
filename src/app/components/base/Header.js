@@ -1,32 +1,38 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
-
 const styles={
   appBar:{
-    paddingLeft:255,
-/*    backgroundColor:'#7fdeea',*/
+    paddingLeft:250,
   }
 }
 
 export default class Header extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
   constructor(props) {
     super(props);
+    this.handleShowHide=this.handleShowHide.bind(this);
+  }
+
+  handleShowHide(e){
+    let open=!this.props.layout.data.open;
+    let layoutNew={
+      open:open,
+      paddingLeft:open==true?250:0
+    };
+    this.props.layoutAction.showHideNavBar(layoutNew);
   }
 
   render() {
+    let layout=this.props.layout;
     return (
-      <div style={styles.appBar}>
+      <div style={{paddingLeft:layout.data.paddingLeft}}>
           <AppBar
-            title="react-swagger"
-            zDepth={2}
+            title={(this.props.layout.data.open==true)?"":"react-swagger"}
+            zDepth={1}
+            onLeftIconButtonTouchTap={this.handleShowHide}
             iconElementRight={
               <div>
-                <FlatButton label="Login"  style={{color:'#FFFFFF'}}/>
+                <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
               </div>
             }

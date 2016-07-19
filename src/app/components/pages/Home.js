@@ -27,7 +27,7 @@ const styles={
     //flexFlow: 'row wrap',
     flexDirection:'column',
     justifyContent:'space-around',
-    padding:15,
+    padding:10,
   },
   apiTab:{
     display:'flex',
@@ -35,12 +35,6 @@ const styles={
     justifyContent:'space-around',
     padding:15,
   },
-  infoTab:{
-    
-  },
-  resultTab:{
-    
-  }
 };
 
 class Home extends React.Component {
@@ -73,11 +67,25 @@ class Home extends React.Component {
 
   render() {
     const data=this.props.data;
-    const apiList=this.props.apiList;
+    //const apiList=this.props.apiList;
     const apiAll=this.props.apiAll;
 
     return (
       <div 
+        style={styles.homeContent}>
+          <div 
+            style={styles.apiAllTab}>
+              {this.renderApiFull(apiAll)}
+          </div>
+      </div>
+    );
+  }
+}
+export default Home;
+
+
+
+/*{<div 
         style={styles.homeContent}>
           <Tabs 
             style={styles.tabs}>
@@ -106,23 +114,5 @@ class Home extends React.Component {
                       {this.renderApi(apiList)}
                   </div>
               </Tab>
-              <Tab 
-                label="Info"  
-                  style={styles.mainTab}>
-                    <div 
-                      style={styles.infoTab}>
-                    </div>
-              </Tab>
-              <Tab 
-                label="Result"  
-                style={styles.mainTab}>
-                  <div 
-                    style={styles.resultTab}>
-                  </div>
-              </Tab>
           </Tabs>
-      </div>
-    );
-  }
-}
-export default Home;
+      </div>}*/

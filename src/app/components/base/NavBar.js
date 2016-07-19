@@ -3,13 +3,19 @@ import { Link } from 'react-router'
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-import RemoveRedEye from 'material-ui/svg-icons/image/remove-red-eye';
-import PersonAdd from 'material-ui/svg-icons/social/person-add';
-import ContentLink from 'material-ui/svg-icons/content/link';
-import Delete from 'material-ui/svg-icons/action/delete';
+import HomeIcon from 'material-ui/svg-icons/action/home';
+import ApiGroupIcon from 'material-ui/svg-icons/action/list';
+import ApiListIcon from 'material-ui/svg-icons/av/library-books';
+import DebugIcon from 'material-ui/svg-icons/action/code';
+import SettingIcon from 'material-ui/svg-icons/action/settings';
+import {Card, CardHeader} from 'material-ui/Card';
+
 const styles={
   menuPanel:{
-    width:200,
+    display:'flex',
+    flexFlow:'row wrap',
+    justifyContent:'flex-start',
+    width:250,
   },
 };
 
@@ -23,30 +29,40 @@ export default class NavBar extends React.Component {
   }
 
   render() {
+    let open=this.props.layout.data.open;
     return (
-      <div>
+      <div style={styles.menuPanel}>
         <Drawer 
           width={250} 
+          containerStyle={{overflow:'hidden'}}
           openSecondary={false} 
-          open={true}>
-            <div style={styles.menuPanel}>
+          open={open}>
+            <div>
+              <Card>
+                <CardHeader
+                  style={{height:62,backgroundColor:'#eaeaea'}}
+                  title="react-swagger"
+                  titleStyle={{fontSize:'14pt',fontWeight:'bold',paddingTop:7}}
+                  avatar="img/logo.png"
+                />
+              </Card>
               <Menu>
                 <MenuItem 
                   primaryText="Home" 
                   containerElement={<Link to="/"/>}
-                  leftIcon={<RemoveRedEye/>}/>
+                  leftIcon={<HomeIcon/>}/>
                 <MenuItem 
-                  primaryText="Dashboard" 
-                  containerElement={<Link to="/dashboard"/>}
-                  leftIcon={<ContentLink/>}/>
+                  primaryText="Group" 
+                  containerElement={<Link to="/group"/>}
+                  leftIcon={<ApiGroupIcon/>}/>
                 <MenuItem 
-                  primaryText="Login" 
-                  containerElement={<Link to="/login"/>}
-                  leftIcon={<PersonAdd/>}/>
+                  primaryText="Debug" 
+                  containerElement={<Link to="/debug"/>}
+                  leftIcon={<DebugIcon/>}/>
                 <MenuItem 
-                  primaryText="About" 
-                  containerElement={<Link to="/about"/>}
-                  leftIcon={<Delete/>}/>
+                  primaryText="Setting" 
+                  containerElement={<Link to="/setting"/>}
+                  leftIcon={<SettingIcon/>}/>
               </Menu>
             </div>
         </Drawer>
@@ -54,3 +70,9 @@ export default class NavBar extends React.Component {
     );
   }
 }
+
+
+  {/*              <MenuItem 
+                  primaryText="All" 
+                  containerElement={<Link to="/all"/>}
+                  leftIcon={<ApiListIcon/>}/>*/}
