@@ -15,18 +15,7 @@ const styles={
 export default class HeaderTop extends React.Component {
   constructor(props) {
     super(props);
-    //this.handleShowHide=this.handleShowHide.bind(this);
   }
-
-/*  handleShowHide(e){
-    let open=!this.props.layout.data.open;
-    let layoutNew={
-      open:open,
-      paddingLeft:open==true?250:0
-    };
-    this.props.layoutAction.showHideNavBar(layoutNew);
-  }*/
-
   render() {
     let layout=this.props.layout;
     return (

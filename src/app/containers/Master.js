@@ -5,6 +5,8 @@ import FooterApp from './base/FooterApp';
 import HeaderApp from './base/HeaderApp';
 import HeaderTopApp from './base/HeaderTopApp';
 import NavBarApp from './base/NavBarApp';
+import { bindActionCreators } from 'redux';
+import * as NavTopActions from '../actions/actions_navtop';
 
 let styles={
   containner:{
@@ -14,12 +16,13 @@ let styles={
 };
 
 class Master extends React.Component {
-  static propTypes = {
-    children: React.PropTypes.object,
-  };
-
   constructor(props) {
     super(props);
+    this.handleStickyNavBarStateChange=this.handleStickyNavBarStateChange.bind(this);
+  }
+
+  handleStickyNavBarStateChange(e){
+    this.props.actions.navTopActions.showHideNavTop(e);
   }
 
   render() {
@@ -29,11 +32,17 @@ class Master extends React.Component {
       }
     return (
       <div>
-          <HeaderTopApp/>
           <StickyContainer>
+            <HeaderTopApp/>
             <Sticky style={{zIndex: 9999}}>
               <HeaderApp/>
-              <NavBarApp/>
+            </Sticky>
+            <Sticky 
+              style={{zIndex: 9999}}
+              onStickyStateChange={this.handleStickyNavBarStateChange}>
+              <div>
+                <NavBarApp/>
+              </div>
             </Sticky>
           	<div style={containner}>
                 {this.props.children}
@@ -50,7 +59,17 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Master);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions:{
+        navTopActions:bindActionCreators(NavTopActions, dispatch)
+    }
+  }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Master);
 
 /*
       <div>
