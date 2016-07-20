@@ -31,7 +31,7 @@ export default class NavBar extends React.Component {
 
   render() {
     let open=this.props.layout.data.open;
-    let top=this.props.top.top;
+    let top=this.props.top;
     return (
       <div style={styles.menuPanel}>
         <Drawer 
