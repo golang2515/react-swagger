@@ -1,279 +1,7447 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "0.0.1",
-    "title": "Todo App"
+    "version": "v1",
+    "title": "Navigo"
   },
-  "host": "localhost:3000",
+  "host": "api2.navigosamui.com",
   "schemes": [
     "http",
     "https"
   ],
-  "consumes": [
-    "application/json",
-    "application/x-www-form-urlencoded"
-  ],
-  "produces": [
-    "application/x-www-form-urlencoded"
-  ],
-  "basePath": "/",
   "paths": {
-    "/tasks": {
+    "/api/AboutNavigo/GetAbout": {
       "get": {
-        "description": "Gets All `Task` objects.\n",
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "title": "ArrayOfTasks",
-              "type": "array",
-              "items": {
-                "title": "Tasks",
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "example": "1"
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "task1"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "Mow the lawn"
-                  },
-                  "date_created": {
-                    "type": "string",
-                    "example": "2015-06-03T23:49:18.059Z"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error",
-            "schema": {
-              "type": "string",
-              "example": "Cannot find Tasks"
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Add 'Task' object.\n",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "The name and description of your new task",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/task"
-              }
-            }
-          }
+        "tags": [
+          "AboutNavigo"
+        ],
+        "summary": "Get the Navigo info",
+        "operationId": "AboutNavigo_GetInfo",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "OK",
             "schema": {
-              "title": "Return String",
-              "type": "string",
-              "example": "Task added succesfully"
-            }
-          },
-          "500": {
-            "description": "Error",
-            "schema": {
-              "type": "string",
-              "example": "Could not add Task"
+              "$ref": "#/definitions/NavigoInfoModel"
             }
           }
-        }
-      },
-      "put": {
-        "description": "Update `Task` object.\n\n # This is array of GET operation parameters:\n",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "unique object id, task name and description",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/task"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "title": "Return String",
-              "type": "string",
-              "example": "Task updated succesfully"
-            }
-          },
-          "500": {
-            "description": "Error",
-            "schema": {
-              "type": "string",
-              "example": "Could not update Task"
-            }
-          }
-        }
-      },
-      "delete": {
-        "description": "Delete `Task` object.\n\n # This is array of GET operation parameters:\n",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "unique object id",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/task"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "title": "Return String",
-              "type": "string",
-              "example": "Task removed succesfully"
-            }
-          },
-          "400": {
-            "description": "Error",
-            "schema": {
-              "type": "string",
-              "example": "Cannot find Task"
-            }
-          }
-        }
+        },
+        "deprecated": false
       }
     },
-    "/tasks/{id}": {
+    "/api/AboutNavigo/UpdateAndroidVersion": {
       "get": {
-        "description": "Gets `Task` object by id.\n\n # This is array of GET operation parameters:\n",
+        "tags": [
+          "AboutNavigo"
+        ],
+        "summary": "Update Android Version",
+        "operationId": "AboutNavigo_UpdateAndroidVersion",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "description": "unique object id",
+            "name": "version",
+            "in": "query",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "OK",
             "schema": {
-              "title": "TaskObject",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "example": "1"
-                },
-                "name": {
-                  "type": "string",
-                  "example": "task1"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Mow the lawn"
-                },
-                "date_created": {
-                  "type": "string",
-                  "example": "2015-06-03T23:49:18.059Z"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error",
-            "schema": {
-              "type": "string",
-              "example": "Cannot find Task"
+              "$ref": "#/definitions/JSONResultTemplate"
             }
           }
-        }
+        },
+        "deprecated": false
       }
     },
-    "/search": {
+    "/api/AboutNavigo/UpdateiOSVersion": {
       "get": {
-        "description": "Gets `Task` object by id.\n\n # This is array of GET operation parameters:\n",
+        "tags": [
+          "AboutNavigo"
+        ],
+        "summary": "Update iOS Version",
+        "operationId": "AboutNavigo_UpdateiOSVersion",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/AboutNavigo": {
+      "post": {
+        "tags": [
+          "AboutNavigo"
+        ],
+        "operationId": "AboutNavigo_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Activity/GetActivities": {
+      "get": {
+        "tags": [
+          "Activity"
+        ],
+        "summary": "Get all the activities",
+        "operationId": "Activity_GetActivities",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ActivityListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Activity": {
+      "post": {
+        "tags": [
+          "Activity"
+        ],
+        "operationId": "Activity_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Ads/GetAd": {
+      "get": {
+        "tags": [
+          "Ad"
+        ],
+        "summary": "Get the ad",
+        "operationId": "Ad_GetAd",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "adID",
+            "in": "query",
+            "description": "ad ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Ads/GetAds": {
+      "get": {
+        "tags": [
+          "Ad"
+        ],
+        "summary": "Get all ads",
+        "operationId": "Ad_GetAds",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Ad": {
+      "post": {
+        "tags": [
+          "Ad"
+        ],
+        "operationId": "Ad_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/GetCar": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Get the car info.",
+        "operationId": "Car_GetCar",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/GetCars": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Get cars",
+        "operationId": "Car_GetCars",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/GetCarsByDriver": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Get cars by driver",
+        "operationId": "Car_GetCarsByDriver",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/GetAvailableCars": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Get available cars by the given car type",
+        "operationId": "Car_GetAvailableCars",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carType",
+            "in": "query",
+            "description": "Car type to view i.e. NaviCar(1),NaviLimo(2),... [check out GetCarTypes API]",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/AddCar": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Add a new car",
+        "operationId": "Car_AddCar",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carInfo",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CarInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/EditCar": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Edit a Car",
+        "operationId": "Car_EditCar",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carInfo",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CarInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/DisableCar": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Disable the car",
+        "operationId": "Car_DeleteCar",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/GetAvailableCarsNearby": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Get available cars near by - by the given car type",
+        "operationId": "Car_GetAvailableCarsNearby",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carType",
+            "in": "query",
+            "description": "Car type to view i.e. NaviCar(1),NaviLimo(2),...[check out GetCarTypes API]",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "my location - lat",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "my location - lng",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/SetServiceStatus": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Set on service status (on/off service)",
+        "operationId": "Car_SetServiceStatus",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carID",
+            "in": "query",
+            "description": "Car ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "isOn",
+            "in": "query",
+            "description": "On or Off",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car/UpdateCarLocation": {
+      "get": {
+        "tags": [
+          "Car"
+        ],
+        "summary": "Update geo location of the car",
+        "operationId": "Car_UpdateCarLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carID",
+            "in": "query",
+            "description": "Car ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "latitude",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "longitude",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "trip ID (if the car is on trip)",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Car": {
+      "post": {
+        "tags": [
+          "Car"
+        ],
+        "operationId": "Car_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/CarType/GetCarType": {
+      "get": {
+        "tags": [
+          "CarType"
+        ],
+        "summary": "Get the car type",
+        "operationId": "CarType_GetCarType",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carTypeID",
+            "in": "query",
+            "description": "Car type ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarTypeModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/CarType/GetCarTypes": {
+      "get": {
+        "tags": [
+          "CarType"
+        ],
+        "summary": "Get all car types",
+        "operationId": "CarType_GetCarTypes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarTypeListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/CarType/AddCarType": {
+      "post": {
+        "tags": [
+          "CarType"
+        ],
+        "summary": "Add a new car type object",
+        "operationId": "CarType_Add",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carType",
+            "in": "body",
+            "description": "CarType object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CarType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/CarType/UpdateCarType": {
+      "post": {
+        "tags": [
+          "CarType"
+        ],
+        "summary": "Update the car type object",
+        "operationId": "CarType_Update",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carType",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CarType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarTypeModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/CarType/Delete": {
+      "get": {
+        "tags": [
+          "CarType"
+        ],
+        "summary": "Delete the car type",
+        "operationId": "CarType_Delete",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "carTypeID",
+            "in": "query",
+            "description": "Car type ID to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/CarType": {
+      "post": {
+        "tags": [
+          "CarType"
+        ],
+        "operationId": "CarType_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Common/RegisterPushNotificationKey": {
+      "get": {
+        "tags": [
+          "Common"
+        ],
+        "summary": "RegisterPushNotificationKey -- Register GCM for push notification for Android\r\n            The method is common for both User and Driver",
+        "operationId": "Common_RegisterPushNotificationKey",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountID",
+            "in": "query",
+            "description": "User ID or Driver ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "userType",
+            "in": "query",
+            "description": "type whether user(1) or driver(2)",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "name": "deviceID",
+            "in": "query",
+            "description": "Android unique device ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GCMKey",
+            "in": "query",
+            "description": "push notification key received from GCM, server will use this key when send push notication to the device later",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Common": {
+      "post": {
+        "tags": [
+          "Common"
+        ],
+        "operationId": "Common_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Country/GetCountry": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Get the country",
+        "operationId": "Country_GetCountry",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "countryID",
+            "in": "query",
+            "description": "Country ID to get",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CountryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Country/GetCountries": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Get all countries",
+        "operationId": "Country_GetCountries",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CountryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Country/GetSMSSupportCountries": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "summary": "Get SMS support countries",
+        "operationId": "Country_GetSMSSupportCountries",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CountryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Country": {
+      "post": {
+        "tags": [
+          "Country"
+        ],
+        "operationId": "Country_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/GetDriver": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Get the driver",
+        "operationId": "Driver_GetDriver",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverID",
+            "in": "query",
+            "description": "driver ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/GetDrivers": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Get all drivers",
+        "operationId": "Driver_GetDrivers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/Login": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Login",
+        "operationId": "Driver_Login",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/Logout": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Logout",
+        "operationId": "Driver_Logout",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverID",
+            "in": "query",
+            "description": "Driver ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/ChangePassword": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Change the user's password",
+        "operationId": "Driver_ChangePassword",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverID",
+            "in": "query",
+            "description": "driver ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "oldPassword",
+            "in": "query",
+            "description": "old password",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "newPassword",
+            "in": "query",
+            "description": "new password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/ForgotPassword": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Forgot password",
+        "operationId": "Driver_ForgotPassword",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/Register": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Register a new driver",
+        "operationId": "Driver_Register",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverInfo",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DriverInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/AddDriver": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Add a new driver",
+        "operationId": "Driver_AddDriver",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverInfo",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DriverInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/EditDriver": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Edit a driver",
+        "operationId": "Driver_EditDriver",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverInfo",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DriverInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DriverModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/SetCarDriver": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Set car to driver",
+        "operationId": "Driver_SetCarDriver",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "cars",
+            "in": "query",
+            "description": "listCar - \"10,12,8\" car list int comma format using",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver/DeleteDriver": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "summary": "Delete the driver",
+        "operationId": "Driver_DeleteDriver",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Driver": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "operationId": "Driver_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue/GetIssue": {
+      "get": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "Get the issue info",
+        "operationId": "Issue_GetIssue",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "issueID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssueInfoModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue/GetIssues": {
+      "get": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "List all issues",
+        "operationId": "Issue_GetIssues",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssueInfoListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue/GetPendingIssues": {
+      "get": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "List all pending issues",
+        "operationId": "Issue_GetPendingIssues",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssueInfoListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue/CreateIssue": {
+      "post": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "Create a new issue",
+        "operationId": "Issue_CreateIssue",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "issueInfo",
+            "in": "body",
+            "description": "Issue info object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IssueInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssueInfoModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue/ProvideResponse": {
+      "get": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "Provide Response",
+        "operationId": "Issue_ProvideResponse",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "issueID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "staffID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "response",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssueInfoModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue/SendMessage": {
+      "get": {
+        "tags": [
+          "Issue"
+        ],
+        "summary": "Send Message",
+        "operationId": "Issue_SendMessages",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "staffID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "userID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Issue": {
+      "post": {
+        "tags": [
+          "Issue"
+        ],
+        "operationId": "Issue_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlace": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get the place",
+        "operationId": "Place_GetPlace",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "placeID",
+            "in": "query",
+            "description": "place ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceEntryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlaceDetails": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get the place details",
+        "operationId": "Place_GetPlaceDetails",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "placeID",
+            "in": "query",
+            "description": "place ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceEntryDetailModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlaces": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get all places",
+        "operationId": "Place_GetPlaces",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceEntryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlacesWithPageIndex": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get all places with page index",
+        "operationId": "Place_GetPlacesWithPageIndex",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceEntryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlaceCategories": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get all place categories",
+        "operationId": "Place_GetPlaceCategories",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceCategoryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/AddPlace": {
+      "post": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Add new Place",
+        "operationId": "Place_AddPlace",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "placeInfo",
+            "in": "body",
+            "description": "place Info object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PlaceInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/UpdatePlace": {
+      "post": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Update place",
+        "operationId": "Place_UpdatePlace",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "placeInfo",
+            "in": "body",
+            "description": "place Info object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PlaceInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/SearchFoursquarePlaces": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get the place",
+        "operationId": "Place_SearchFoursquarePlaces",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceEntryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlaceName": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get place name",
+        "operationId": "Place_GetPlaceName",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "lat",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "lng",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlaceVicinity": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get place vicinity",
+        "operationId": "Place_GetPlaceVicinity",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "lat",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "lng",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place/GetPlacesNearBy": {
+      "get": {
+        "tags": [
+          "Place"
+        ],
+        "summary": "Get places near by",
+        "operationId": "Place_GetPlacesNearBy",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "lat",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "lng",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceCoreListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Place": {
+      "post": {
+        "tags": [
+          "Place"
+        ],
+        "operationId": "Place_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/PromoCode/GetPromoCode": {
+      "get": {
+        "tags": [
+          "PromoCode"
+        ],
+        "summary": "Get the promotion code",
+        "operationId": "PromoCode_GetPromoCode",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "promoCodeID",
+            "in": "query",
+            "description": "Promotion code ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PromoCodeModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/PromoCode/GetPromoCodes": {
+      "get": {
+        "tags": [
+          "PromoCode"
+        ],
+        "summary": "Get all promotion codes",
+        "operationId": "PromoCode_GetPromoCodes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PromoCodeListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/PromoCode/GetValidPromoCodes": {
+      "get": {
+        "tags": [
+          "PromoCode"
+        ],
+        "summary": "Get valid promotion and sales codes",
+        "operationId": "PromoCode_GetValidPromoCodes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PromoCodeListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/PromoCode/IsPromoCodeValid2": {
+      "get": {
+        "tags": [
+          "PromoCode"
+        ],
+        "summary": "Check if the promo code is valid",
+        "operationId": "PromoCode_IsPromoCodeValid2",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "promoCode",
+            "in": "query",
+            "description": "Promo Code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "User ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/PromoCode/CalculateDiscount": {
+      "get": {
+        "tags": [
+          "PromoCode"
+        ],
+        "summary": "Calculate discount",
+        "operationId": "PromoCode_CalculateDiscount",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "baseFare",
+            "in": "query",
+            "description": "base fare",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "distanceFare",
+            "in": "query",
+            "description": "distance fare",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "promoCode",
+            "in": "query",
+            "description": "Promo Code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "User ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/PromoCode": {
+      "post": {
+        "tags": [
+          "PromoCode"
+        ],
+        "operationId": "PromoCode_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/GetSale": {
+      "get": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Get sale detail",
+        "operationId": "Sale_GetSale",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "saleID",
+            "in": "query",
+            "description": "sale ID to get detail",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SaleModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/GetSales": {
+      "get": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Get all sales",
+        "operationId": "Sale_GetSales",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SaleListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/GetCommissions": {
+      "get": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Get sales",
+        "operationId": "Sale_GetCommissions",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "description": "code to get transactions",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "page index",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommissionInfoListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/GetCommissionsAdminView": {
+      "get": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Get sales admin view",
+        "operationId": "Sale_GetCommissionsAdminView",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "description": "sales code to get transactions (-1 to omit)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "page index",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommissionInfoListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/Login": {
+      "get": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Login manually",
+        "operationId": "Sale_Login",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SaleLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/Register": {
+      "post": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Register new sale",
+        "operationId": "Sale_Register",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "unique task object name",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response",
+            "description": "OK",
             "schema": {
-              "title": "TaskObject",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "example": "1"
-                },
-                "name": {
-                  "type": "string",
-                  "example": "task1"
-                },
-                "description": {
-                  "type": "string",
-                  "example": "Mow the lawn"
-                },
-                "date_created": {
-                  "type": "string",
-                  "example": "2015-06-03T23:49:18.059Z"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error",
-            "schema": {
-              "type": "string",
-              "example": "Cannot find Task"
+              "$ref": "#/definitions/JSONResultTemplate"
             }
           }
-        }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/UpdateSale": {
+      "get": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "Update sales person",
+        "operationId": "Sale_Update",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "saleID",
+            "in": "query",
+            "description": "sale ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Display name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "companyName",
+            "in": "query",
+            "description": "Company name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "address",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SaleModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/Approve": {
+      "post": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "For admin to approve the sales person",
+        "operationId": "Sale_Approve",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "admin user who approves this sale",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "saleID",
+            "in": "query",
+            "description": "sale ID to approve",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/sale/Delete": {
+      "post": {
+        "tags": [
+          "Sale"
+        ],
+        "summary": "For admin to delete the sales person",
+        "operationId": "Sale_Delete",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "admin user who deletes this sale",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "saleID",
+            "in": "query",
+            "description": "sale ID to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Sale": {
+      "post": {
+        "tags": [
+          "Sale"
+        ],
+        "operationId": "Sale_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Staff/GetStaff": {
+      "get": {
+        "tags": [
+          "Staff"
+        ],
+        "summary": "Get Staff",
+        "operationId": "Staff_GetStaff",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "StaffID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StaffModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Staff/GetStaffs": {
+      "get": {
+        "tags": [
+          "Staff"
+        ],
+        "summary": "Get Staffs",
+        "operationId": "Staff_GetStaffs",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StaffListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Staff/Login": {
+      "get": {
+        "tags": [
+          "Staff"
+        ],
+        "summary": "Login manually",
+        "operationId": "Staff_Login",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StaffLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Staff/Logout": {
+      "get": {
+        "tags": [
+          "Staff"
+        ],
+        "summary": "Logout",
+        "operationId": "Staff_Logout",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "staffID",
+            "in": "query",
+            "description": "User ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StaffLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Staff": {
+      "post": {
+        "tags": [
+          "Staff"
+        ],
+        "operationId": "Staff_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Statistics/GetLiveStat": {
+      "get": {
+        "tags": [
+          "Stat"
+        ],
+        "summary": "Calculate the stat info from the live data (trips, users)",
+        "operationId": "Stat_GetLiveStat",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "localStartDate",
+            "in": "query",
+            "description": "Start date in local time zone (i.e. Thai) MM/dd/YYYY",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "localEndDate",
+            "in": "query",
+            "description": "End date in local time zone (i.e. Thai) MM/dd/YYYY",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "periodType",
+            "in": "query",
+            "description": "period type -- daily, weekly, monthly, or yearly",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StatModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Statistics/GetRecentStat": {
+      "get": {
+        "tags": [
+          "Stat"
+        ],
+        "summary": "Get all stat. in the given period",
+        "operationId": "Stat_GetRecentStat",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "periodType",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "name": "itemsToTake",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StatListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Statistics/GetHourlyTrafficByWeekDay": {
+      "get": {
+        "tags": [
+          "Stat"
+        ],
+        "summary": "Get hourly traffic by weekday",
+        "operationId": "Stat_GetHourlyTrafficByWeekDay",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StatListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Stat": {
+      "post": {
+        "tags": [
+          "Stat"
+        ],
+        "operationId": "Stat_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetTrip": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get the trip",
+        "operationId": "Trip_GetTrip",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripSummaryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetTrips": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get all trips",
+        "operationId": "Trip_GetTrips",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetEnquiry": {
+      "post": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get trip enquiry, to show approx. distance, approx. ETA, approx. fare",
+        "operationId": "Trip_GetEnquiry",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripInfo",
+            "in": "body",
+            "description": "Trip info object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TripInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripEnquiryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/CreateTrip": {
+      "post": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Create a new trip",
+        "operationId": "Trip_CreateTrip",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripInfo",
+            "in": "body",
+            "description": "Trip info object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TripInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/RequestBidding": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Send bidding request",
+        "operationId": "Trip_RequestBidding",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "carID",
+            "in": "query",
+            "description": "Car ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/ArrivePickupLocation": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Arrive Pickup Location",
+        "operationId": "Trip_ArrivePickupLocation",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitute",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "Logitude",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/StartTrip": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Start the trip",
+        "operationId": "Trip_StartTrip",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitute",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "Logitude",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/FinishTrip": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Finish the trip",
+        "operationId": "Trip_FinishTrip",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "Longitude",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripSummaryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/CancelTrip": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Cancel the trip (either by user or by driver)",
+        "operationId": "Trip_CancelTrip",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "trip to cancel",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "description": "the description why cancelled the trip",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cancelledBy",
+            "in": "query",
+            "description": "the user type -- user(1), driver(2) -- staff(3)",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/Evaluate": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Evaluate the trip (by user or by driver)",
+        "operationId": "Trip_Evaluate",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "score",
+            "in": "query",
+            "description": "Score to give",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "description": "Comment to give",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "evaluatedBy",
+            "in": "query",
+            "description": "User who are evaluating - User(1), Driver(2)",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetDirectionRoutes": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get routes from Google Directions (testing purpose)",
+        "operationId": "Trip_GetDirectionRoutes",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "description": "source -- \"lat,lng\" format",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "description": "destination -- \"lat,lng\" format",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RoutesModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/AssignCar": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Assign car to the trip",
+        "operationId": "Trip_AssignCar",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "carID",
+            "in": "query",
+            "description": "Car ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/DecodePolylines": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Decode Google Direction Polylines - (Google Directions returns points in encoded format)",
+        "operationId": "Trip_DecodePolylines",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "encodedPoints",
+            "in": "query",
+            "description": "Encoded Google points",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LocationModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetRecentOngoingTrips": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get recent ongoing trips",
+        "operationId": "Trip_GetRecentOngoingTrips",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripSummaryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetUserHistoricalRecords": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get user's historical records",
+        "operationId": "Trip_GetUserHistoricalRecords",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "User ID to get records",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "Page index to display",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripSummaryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetDriverHistoricalRecords": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get driver's historical records",
+        "operationId": "Trip_GetDriverHistoricalRecords",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "driverID",
+            "in": "query",
+            "description": "Driver ID to get records",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "Page index to display",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripSummaryModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetRoute": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get route",
+        "operationId": "Trip_GetRoute",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TripRouteListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip/GetCandidates": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "summary": "Get Candidates",
+        "operationId": "Trip_GetCandidates",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "tripID",
+            "in": "query",
+            "description": "Trip ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Trip": {
+      "post": {
+        "tags": [
+          "Trip"
+        ],
+        "operationId": "Trip_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/GetUser": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get the user info.",
+        "operationId": "User_GetUser",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/GetUsers": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get users",
+        "operationId": "User_GetUsers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/Search": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Search",
+        "operationId": "User_Search",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/IsPhoneNoVerified": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "IsPhoneNoVerified",
+        "operationId": "User_IsPhoneNoVerified",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/SavePhoneNo": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "SavePhoneNo",
+        "operationId": "User_SavePhoneNo",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "phoneNo",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/VerifyPhoneNo": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "VerifyPhoneNo",
+        "operationId": "User_VerifyPhoneNo",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "OTP",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/Register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Register new user",
+        "operationId": "User_Register",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userInfo",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/UpdateProfile": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update user profile",
+        "operationId": "User_UpdateProfile",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "User ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Display name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "countryID",
+            "in": "query",
+            "description": "Country ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "phoneCountryCode",
+            "in": "query",
+            "description": "Phone Country Code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phoneNo",
+            "in": "query",
+            "description": "Telephone no.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/SetResidentialStatus": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_SetResidentialStatus",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "isResidential",
+            "in": "query",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/Login": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Login manually",
+        "operationId": "User_Login",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/LoginFB": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Login FB",
+        "operationId": "User_LoginWithFB",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "FBID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/Logout": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Logout",
+        "operationId": "User_Logout",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "User ID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserLoginModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/GetTopCancelUsers": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get top cancel users in percentage",
+        "operationId": "User_GetTopCancelUsers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserInfoStatListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/GetTopRepeatUsers": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get top repeat users in percentage",
+        "operationId": "User_GetTopRepeatUsers",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserInfoStatListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/DoesUserExist": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Check if the user exists (FB)",
+        "operationId": "User_DoesUserExist",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "FBID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/ChangePassword": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change password",
+        "operationId": "User_ChangePassword",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "oldPassword",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "newPassword",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/ForgotPassword": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Forgot password",
+        "operationId": "User_ForgotPassword",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/SetFavoritePlace": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add / remove a favorite place",
+        "operationId": "User_SetFavoritePlace",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "placeID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "isFavorite",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/SetFavorite3drPartyPlace": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add / remove a favorite place",
+        "operationId": "User_SetFavorite3drPartyPlace",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "placeSource",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              1,
+              2
+            ]
+          },
+          {
+            "name": "referenceID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "placeName",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isFavorite",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JSONResultTemplate"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User/GetFavoritePlaces": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get favorite places",
+        "operationId": "User_GetFavoritePlaces",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/PlaceEntryListModel"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/User": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_JsonResp",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "result",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
       }
     }
   },
   "definitions": {
-    "task": {
+    "NavigoInfoModel": {
+      "type": "object",
       "properties": {
-        "id": {
+        "Item": {
+          "$ref": "#/definitions/About"
+        },
+        "Status": {
           "type": "string"
         },
-        "name": {
+        "Message": {
           "type": "string"
         },
-        "description": {
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "About": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "FBURL": {
           "type": "string"
         },
-        "date_created": {
+        "webURL": {
           "type": "string"
+        },
+        "IGURL": {
+          "type": "string"
+        },
+        "OperatorPhoneNoThai": {
+          "type": "string"
+        },
+        "OperatorPhoneNoEnglish": {
+          "type": "string"
+        },
+        "iOSVer": {
+          "type": "string"
+        },
+        "AndroidVer": {
+          "type": "string"
+        },
+        "AndroidURL": {
+          "type": "string"
+        },
+        "iOSURL": {
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "JSONResultTemplate": {
+      "type": "object",
+      "properties": {
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Object": {
+      "type": "object",
+      "properties": {}
+    },
+    "ActivityListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Activity"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "OwnerName": {
+          "type": "string"
+        },
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "OwnerID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Action": {
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "AdModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Ad"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Ad": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "ClientName": {
+          "type": "string"
+        },
+        "Image": {
+          "type": "string"
+        },
+        "ViewCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "AdListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Ad"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "CarModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Car"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Car": {
+      "type": "object",
+      "properties": {
+        "Dist": {
+          "format": "double",
+          "type": "number"
+        },
+        "BaseFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Model": {
+          "type": "string"
+        },
+        "Brand": {
+          "type": "string"
+        },
+        "PlateNumber": {
+          "type": "string"
+        },
+        "Year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Color": {
+          "type": "string"
+        },
+        "CarTypeID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CurrentDriverID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Photo1": {
+          "type": "string"
+        },
+        "Photo2": {
+          "type": "string"
+        },
+        "Photo3": {
+          "type": "string"
+        },
+        "Photo4": {
+          "type": "string"
+        },
+        "Photo5": {
+          "type": "string"
+        },
+        "LastLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "LastLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StatusName": {
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "CarListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Car"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "CarInfo": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Model": {
+          "type": "string"
+        },
+        "Brand": {
+          "type": "string"
+        },
+        "PlateNumber": {
+          "type": "string"
+        },
+        "Year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Color": {
+          "type": "string"
+        },
+        "CarTypeID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Photo1": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DriverModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Driver"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Driver": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ProfilePhoto": {
+          "type": "string"
+        },
+        "PhoneNo": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StatusName": {
+          "type": "string"
+        },
+        "Score": {
+          "format": "double",
+          "type": "number"
+        },
+        "DisplayScore": {
+          "format": "double",
+          "type": "number"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "DeviceID": {
+          "type": "string"
+        },
+        "GCMKey": {
+          "type": "string"
+        },
+        "LastLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "CarTypeModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/CarType"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "CarType": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CarTypeName": {
+          "type": "string"
+        },
+        "Icon": {
+          "type": "string"
+        },
+        "BaseFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "FareRate": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "CarTypeListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CarType"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "CountryModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Country"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Country": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ISO2": {
+          "type": "string"
+        },
+        "ShortName": {
+          "type": "string"
+        },
+        "LongName": {
+          "type": "string"
+        },
+        "ISO3": {
+          "type": "string"
+        },
+        "NumCode": {
+          "type": "string"
+        },
+        "CallingCode": {
+          "type": "string"
+        },
+        "ccTLD": {
+          "type": "string"
+        },
+        "IsUNMember": {
+          "type": "boolean"
+        },
+        "FlagImage": {
+          "type": "string"
+        },
+        "DisplayOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SMSSupport": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CountryListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Country"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "DriverListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Driver"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "DriverLoginModel": {
+      "type": "object",
+      "properties": {
+        "Token": {
+          "type": "string"
+        },
+        "Item": {
+          "$ref": "#/definitions/DriverInfo"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "DriverInfo": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PhoneNo": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "CarID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ProfilePhoto": {
+          "type": "string"
+        }
+      }
+    },
+    "IssueInfoModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Issue"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Issue": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StatusName": {
+          "type": "string"
+        },
+        "Answer": {
+          "type": "string"
+        },
+        "SupportStaff": {
+          "type": "string"
+        },
+        "ResponseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "IssueInfoListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Issue"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "IssueInfo": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
+    },
+    "PlaceEntryModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/PlaceEntry"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "PlaceEntry": {
+      "type": "object",
+      "properties": {
+        "CategoryName": {
+          "type": "string"
+        },
+        "PlaceID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "PlaceName": {
+          "type": "string"
+        },
+        "CategoryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "ReferenceID": {
+          "type": "string"
+        },
+        "PlaceSource": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PlaceEntryDetailModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/PlaceEntryDetail"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "PlaceEntryDetail": {
+      "type": "object",
+      "properties": {
+        "Photos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PlacePhoto"
+          }
+        },
+        "CategoryName": {
+          "type": "string"
+        },
+        "PlaceID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "PlaceName": {
+          "type": "string"
+        },
+        "CategoryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "ReferenceID": {
+          "type": "string"
+        },
+        "PlaceSource": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PlacePhoto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PlaceID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PhotoPath": {
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "PlaceEntryListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PlaceEntry"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "PlaceCategoryListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PlaceCategory"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "PlaceCategory": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PlaceCategoryName": {
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "PlaceInfo": {
+      "type": "object",
+      "properties": {
+        "PlaceID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "PlaceName": {
+          "type": "string"
+        },
+        "CategoryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "ReferenceID": {
+          "type": "string"
+        },
+        "PlaceSource": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PlaceModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Place"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Place": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ReferenceID": {
+          "type": "string"
+        },
+        "PlaceName": {
+          "type": "string"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CategoryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PlaceSource": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsReported": {
+          "type": "boolean"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "PlaceCoreListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PlaceCore"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "PlaceCore": {
+      "type": "object",
+      "properties": {
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "PlaceName": {
+          "type": "string"
+        },
+        "Vicinity": {
+          "type": "string"
+        }
+      }
+    },
+    "PromoCodeModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/PromoCode"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "PromoCode": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "DiscountType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DiscountValue": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "BannerPhoto": {
+          "type": "string"
+        },
+        "CodeUseQuota": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "AccountUseQuota": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CodeUseCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsActive": {
+          "type": "boolean"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "PromoCodeListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PromoCode"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "SaleModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Sale"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Sale": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PhoneNo": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Score": {
+          "format": "double",
+          "type": "number"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "DeviceID": {
+          "type": "string"
+        },
+        "GCMKey": {
+          "type": "string"
+        },
+        "LastLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Code": {
+          "type": "string"
+        },
+        "CompanyName": {
+          "type": "string"
+        },
+        "Address": {
+          "type": "string"
+        },
+        "IsActive": {
+          "type": "boolean"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "SaleListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sale"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "CommissionInfoListModel": {
+      "type": "object",
+      "properties": {
+        "TotalItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommissionInfo"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "CommissionInfo": {
+      "type": "object",
+      "properties": {
+        "SaleName": {
+          "type": "string"
+        },
+        "User": {
+          "type": "string"
+        },
+        "UserPhoto": {
+          "type": "string"
+        },
+        "commissionAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TripID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SalesCode": {
+          "type": "string"
+        },
+        "Distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "DistanceFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BaseFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Discount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "SaleLoginModel": {
+      "type": "object",
+      "properties": {
+        "userType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "Item": {
+          "$ref": "#/definitions/Sale"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "StaffModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Staff"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Staff": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PhoneNo": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StatusName": {
+          "type": "string"
+        },
+        "Score": {
+          "format": "double",
+          "type": "number"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "DeviceID": {
+          "type": "string"
+        },
+        "GCMKey": {
+          "type": "string"
+        },
+        "Role": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "LastLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "StaffListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Staff"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "StaffLoginModel": {
+      "type": "object",
+      "properties": {
+        "Token": {
+          "type": "string"
+        },
+        "Item": {
+          "$ref": "#/definitions/Staff"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "StatModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Summary"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Summary": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TransDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "TripCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NewUserCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserCancelCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "SuccessCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TotalBaseFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Periodtype": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "StatListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Summary"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "TripSummaryModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/TripSummary"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "TripSummary": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "UserPhoto": {
+          "type": "string"
+        },
+        "DriverID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CarID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickupLocationID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickupLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "PickupLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "PickupLocationName": {
+          "type": "string"
+        },
+        "DropOffLocationID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DropOffLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationName": {
+          "type": "string"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PromoCode": {
+          "type": "string"
+        },
+        "NoteToDriver": {
+          "type": "string"
+        },
+        "ResendToken": {
+          "type": "string"
+        },
+        "CommentToDriver": {
+          "type": "string"
+        },
+        "DriverScore": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DriverEvaluateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UserScore": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CommentToUser": {
+          "type": "string"
+        },
+        "UserEvaluateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "EstimatedFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EstimatedDistance": {
+          "format": "double",
+          "type": "number"
+        },
+        "ActualFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActualDistance": {
+          "format": "double",
+          "type": "number"
+        },
+        "ActualDropOffLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "ActualDropOffLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Discount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "BaseFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StartTripDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndTripDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "UserPhone": {
+          "type": "string"
+        },
+        "UserCountryName": {
+          "type": "string"
+        },
+        "UserCountryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserAvgScore": {
+          "format": "double",
+          "type": "number"
+        },
+        "DriverName": {
+          "type": "string"
+        },
+        "DriverPhone": {
+          "type": "string"
+        },
+        "DriverPhoto": {
+          "type": "string"
+        },
+        "DriverAvgScore": {
+          "format": "double",
+          "type": "number"
+        },
+        "CarBrand": {
+          "type": "string"
+        },
+        "CarModel": {
+          "type": "string"
+        },
+        "CarPlateNo": {
+          "type": "string"
+        },
+        "CarLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "CarLng": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "TripListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Trip"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Trip": {
+      "type": "object",
+      "properties": {
+        "UserName": {
+          "type": "string"
+        },
+        "DriverName": {
+          "type": "string"
+        },
+        "PlateNo": {
+          "type": "string"
+        },
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "UserPhoto": {
+          "type": "string"
+        },
+        "DriverID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CarID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CarTypeID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickupLocationID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickupLocationName": {
+          "type": "string"
+        },
+        "PickupLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "PickupLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DropOffLocationName": {
+          "type": "string"
+        },
+        "DropOffLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StatusName": {
+          "type": "string"
+        },
+        "PromoCode": {
+          "type": "string"
+        },
+        "CommentToDriver": {
+          "type": "string"
+        },
+        "DriverScore": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DriverEvaluateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UserScore": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CommentToUser": {
+          "type": "string"
+        },
+        "UserEvaluateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "EstimatedFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EstimatedDistance": {
+          "format": "double",
+          "type": "number"
+        },
+        "ActualFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActualDistance": {
+          "format": "double",
+          "type": "number"
+        },
+        "ActualDropOffLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "ActualDropOffLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "BaseFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Discount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "NoteToDriver": {
+          "type": "string"
+        },
+        "CancelReason": {
+          "type": "string"
+        },
+        "TimeToPickup": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ResendToken": {
+          "type": "string"
+        },
+        "StartTripDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "EndTripDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "BiddingWinDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PickupDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CancelDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "TripInfo": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "URLPrefix": {
+          "type": "string"
+        },
+        "UserPhoto": {
+          "type": "string"
+        },
+        "PickupLocationID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PickupLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "PickupLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DropOffLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "PromoCode": {
+          "type": "string"
+        },
+        "NoteToDriver": {
+          "type": "string"
+        },
+        "CarTypeID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DropOffLocationName": {
+          "type": "string"
+        },
+        "PickupLocationName": {
+          "type": "string"
+        }
+      }
+    },
+    "TripEnquiryModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/TripEnquiry"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "TripEnquiry": {
+      "type": "object",
+      "properties": {
+        "PickupLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "PickupLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationLat": {
+          "format": "double",
+          "type": "number"
+        },
+        "DropOffLocationLng": {
+          "format": "double",
+          "type": "number"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PromoCode": {
+          "type": "string"
+        },
+        "EstimatedFare": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "EstimatedDistance": {
+          "format": "double",
+          "type": "number"
+        },
+        "ApproxTimeSec": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "TripModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/Trip"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "RoutesModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DistanceM": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "DurationSec": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Route"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "Route": {
+      "type": "object",
+      "properties": {
+        "bounds": {
+          "$ref": "#/definitions/Bounds"
+        },
+        "copyrights": {
+          "type": "string"
+        },
+        "legs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Leg"
+          }
+        },
+        "overview_polyline": {
+          "$ref": "#/definitions/Polyline"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Object"
+          }
+        },
+        "waypoint_order": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Object"
+          }
+        },
+        "overview_polyline_decoded": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Location"
+          }
+        }
+      }
+    },
+    "Bounds": {
+      "type": "object",
+      "properties": {
+        "northeast": {
+          "$ref": "#/definitions/Location"
+        },
+        "southwest": {
+          "$ref": "#/definitions/Location"
+        }
+      }
+    },
+    "Leg": {
+      "type": "object",
+      "properties": {
+        "distance": {
+          "$ref": "#/definitions/Distance"
+        },
+        "duration": {
+          "$ref": "#/definitions/Duration"
+        },
+        "end_address": {
+          "type": "string"
+        },
+        "end_location": {
+          "$ref": "#/definitions/Location"
+        },
+        "start_address": {
+          "type": "string"
+        },
+        "start_location": {
+          "$ref": "#/definitions/Location"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Step"
+          }
+        },
+        "via_waypoint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Object"
+          }
+        }
+      }
+    },
+    "Polyline": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "type": "string"
+        }
+      }
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "lng": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "Distance": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Duration": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Step": {
+      "type": "object",
+      "properties": {
+        "distance": {
+          "$ref": "#/definitions/Distance2"
+        },
+        "duration": {
+          "$ref": "#/definitions/Duration2"
+        },
+        "end_location": {
+          "$ref": "#/definitions/Location"
+        },
+        "html_instructions": {
+          "type": "string"
+        },
+        "polyline": {
+          "$ref": "#/definitions/Polyline"
+        },
+        "start_location": {
+          "$ref": "#/definitions/Location"
+        },
+        "travel_mode": {
+          "type": "string"
+        },
+        "maneuver": {
+          "type": "string"
+        }
+      }
+    },
+    "Distance2": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Duration2": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "LocationModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Location"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "TripRouteListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TripRoute"
+          }
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "TripRoute": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "TripID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Lat": {
+          "format": "double",
+          "type": "number"
+        },
+        "Lng": {
+          "format": "double",
+          "type": "number"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "UserModel": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/User"
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "PhoneCountryCode": {
+          "type": "string"
+        },
+        "PhoneNo": {
+          "type": "string"
+        },
+        "NewPhoneNo": {
+          "type": "string"
+        },
+        "Photo": {
+          "type": "string"
+        },
+        "CountryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ActivationKey": {
+          "type": "string"
+        },
+        "FBID": {
+          "type": "string"
+        },
+        "AuthenType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "StatusName": {
+          "type": "string"
+        },
+        "Score": {
+          "format": "double",
+          "type": "number"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "DeviceID": {
+          "type": "string"
+        },
+        "GCMKey": {
+          "type": "string"
+        },
+        "Remark": {
+          "type": "string"
+        },
+        "IsPhoneNoVerified": {
+          "type": "boolean"
+        },
+        "OTP": {
+          "type": "string"
+        },
+        "SalesCode": {
+          "type": "string"
+        },
+        "IsResidential": {
+          "type": "boolean"
+        },
+        "LastLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CreateDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdateDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "UserListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "UserInfo": {
+      "type": "object",
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "CountryID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "FBID": {
+          "type": "string"
+        },
+        "AuthenType": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "PhoneCountryCode": {
+          "type": "string"
+        },
+        "PhoneNo": {
+          "type": "string"
+        }
+      }
+    },
+    "UserLoginModel": {
+      "type": "object",
+      "properties": {
+        "Token": {
+          "type": "string"
+        },
+        "Item": {
+          "$ref": "#/definitions/User"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "UserInfoStatListModel": {
+      "type": "object",
+      "properties": {
+        "ItemCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserInfoStat"
+          }
+        },
+        "PrefixURL": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Param": {
+          "type": "string"
+        }
+      }
+    },
+    "UserInfoStat": {
+      "type": "object",
+      "properties": {
+        "UserID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Photo": {
+          "type": "string"
+        },
+        "TotalTripCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ConsiderTripCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "CancelPct": {
+          "format": "int32",
+          "type": "integer"
         }
       }
     }
