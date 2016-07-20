@@ -29,7 +29,7 @@ class Master extends React.Component {
     let containner={
         paddingLeft:this.props.layout.data.paddingLeft,
         paddingRight:0,
-      }
+    }
     return (
       <div>
           <StickyContainer>

@@ -10,6 +10,7 @@ import DebugIcon from 'material-ui/svg-icons/action/code';
 import SettingIcon from 'material-ui/svg-icons/action/settings';
 import {Card, CardHeader} from 'material-ui/Card';
 
+
 const styles={
   menuPanel:{
     display:'flex',
@@ -21,10 +22,6 @@ const styles={
 };
 
 export default class NavBar extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
   constructor(props) {
     super(props);
   }
@@ -36,7 +33,7 @@ export default class NavBar extends React.Component {
       <div style={styles.menuPanel}>
         <Drawer 
           width={250} 
-          containerStyle={{overflow:'hidden',marginTop: (top==false)?35:0}}
+          containerStyle={{overflow:'hidden',marginTop: (top==false)?40:0}}
           openSecondary={false} 
           docked={true}
           open={open}>
