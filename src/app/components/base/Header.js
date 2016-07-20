@@ -4,6 +4,9 @@ import FlatButton from 'material-ui/FlatButton';
 const styles={
   appBar:{
     paddingLeft:250,
+  },
+  titleStyle:{
+    userSelect: 'none',
   }
 }
 
@@ -30,6 +33,7 @@ export default class Header extends React.Component {
             title={(this.props.layout.data.open==true)?"":"react-swagger"}
             zDepth={1}
             onLeftIconButtonTouchTap={this.handleShowHide}
+            titleStyle={styles.titleStyle}
             iconElementRight={
               <div>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
