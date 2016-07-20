@@ -1,6 +1,8 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
+
 const styles={
   appBar:{
     paddingLeft:250,
@@ -38,6 +40,11 @@ export default class Header extends React.Component {
               <div>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
+                <IconButton
+                  style={{color:'#FFFFFF'}}
+                  iconClassName="muidocs-icon-custom-github"
+                  href="https://github.com/golang2515/react-swagger"
+                />
               </div>
             }
           />
