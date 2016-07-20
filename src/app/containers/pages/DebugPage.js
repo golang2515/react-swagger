@@ -21,8 +21,7 @@ class DebugPage extends React.Component {
   }
 
   componentWillMount(){
-      //const url="api/swagger.json";
-      const url="http://api2.navigosamui.com/swagger/docs/v1";
+      const url="api/swagger.json";
       this.props.actions.jsonAction.fetchJsonData(url);
   }
 
