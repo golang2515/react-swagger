@@ -9,8 +9,7 @@
     "scripts": {
         "start": "node app.js",
         "build": "gulp build",
-        "serveprod": "gulp serveprod",
-        "postinstall": "gulp build"
+        "serveprod": "gulp serveprod"
     },
     "devDependencies": {
         "babel-core": "^6.10.4",
