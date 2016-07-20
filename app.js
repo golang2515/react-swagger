@@ -4,7 +4,7 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('*', function(req, res) {
-    res.sendfile('./public/index.html');
+    res.sendfile('../public/index.html');
 });
 var port = process.env.PORT || 8000;
 
