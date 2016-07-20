@@ -34,7 +34,7 @@ export default class NavBar extends React.Component {
       <div style={styles.menuPanel}>
         <Drawer 
           width={250} 
-          containerStyle={{overflow:'hidden'}}
+          containerStyle={{overflow:'hidden',top:35}}
           openSecondary={false} 
           open={open}>
             <div>
@@ -72,7 +72,7 @@ export default class NavBar extends React.Component {
 }
 
 
-  {/*              <MenuItem 
+/*  {              <MenuItem 
                   primaryText="All" 
                   containerElement={<Link to="/all"/>}
-                  leftIcon={<ApiListIcon/>}/>*/}
+                  leftIcon={<ApiListIcon/>}/>}*/
