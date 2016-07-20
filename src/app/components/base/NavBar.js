@@ -16,6 +16,7 @@ const styles={
     flexFlow:'row wrap',
     justifyContent:'flex-start',
     width:250,
+    position:'relative',
   },
 };
 
@@ -30,12 +31,14 @@ export default class NavBar extends React.Component {
 
   render() {
     let open=this.props.layout.data.open;
+    let top=this.props.top.top;
     return (
       <div style={styles.menuPanel}>
         <Drawer 
           width={250} 
-          containerStyle={{overflow:'hidden'}}
+          containerStyle={{overflow:'hidden',marginTop: (top==false)?35:0}}
           openSecondary={false} 
+          docked={true}
           open={open}>
             <div>
               <Card>
@@ -70,9 +73,3 @@ export default class NavBar extends React.Component {
     );
   }
 }
-
-
-  {/*              <MenuItem 
-                  primaryText="All" 
-                  containerElement={<Link to="/all"/>}
-                  leftIcon={<ApiListIcon/>}/>*/}

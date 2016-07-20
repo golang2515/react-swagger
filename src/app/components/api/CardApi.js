@@ -24,6 +24,7 @@ class CardApi extends React.Component {
         return (
           <ListItem key={func.apiUrl}
             primaryText={func.apiUrl}
+            style={{textoverflow:'ellipsis'}}
             leftIcon={<ActionGrade color={pinkA200} />}/>
         )
       }

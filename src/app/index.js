@@ -17,6 +17,7 @@ const history = new createBrowserHistory();
 const store = configureStore();
 
 const muiTheme = getMuiTheme({});
+console.log(muiTheme);
 
 injectTapEventPlugin();
 

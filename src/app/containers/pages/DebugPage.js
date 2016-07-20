@@ -13,7 +13,7 @@ const styles={
   paperContent:{
     paddingTop:10,
     backgroundColor:'#eaeaea',
-    minHeight:'calc(100vh - 85px)',
+    minHeight:'calc(100vh - 115px)',
   }
 }
 

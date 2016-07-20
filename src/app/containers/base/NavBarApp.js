@@ -13,14 +13,15 @@ class NavBarApp extends React.Component {
 
   render() {
     return (
-      <NavBar layout={this.props.layout}/>
+      <NavBar layout={this.props.layout} top={this.props.top}/>
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    layout:state.layout
+    layout:state.layout,
+    top:state.top,
   };
 }
 
