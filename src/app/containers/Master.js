@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import { StickyContainer, Sticky } from 'react-sticky';
 
 import FooterApp from './base/FooterApp';
 import HeaderApp from './base/HeaderApp';
@@ -29,13 +29,17 @@ class Master extends React.Component {
       }
     return (
       <div>
-        <HeaderApp/>
-        <div>
-          <NavBarApp/>
-        </div>
-      	<div style={containner}>
-            {this.props.children}
-        </div>
+        <StickyContainer>
+          <Sticky style={{zIndex: 9999}}>
+            <HeaderApp/>
+          </Sticky>
+          <div>
+            <NavBarApp/>
+          </div>
+        	<div style={containner}>
+              {this.props.children}
+          </div>
+        </StickyContainer>
       </div>
     );
   }
