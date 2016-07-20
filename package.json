@@ -1,12 +1,13 @@
 {
   "name": "react-swagger",
   "version": "0.0.1",
-  "description": "reactjs,asp.net,swagger,materil-ui",
+  "description": "react.js,asp.net,swagger,material-ui",
   "repository": {
     "type": "git",
     "url": "https://github.com/golang2515/react-swagger.git"
   },
   "scripts": {
+    "dev":"gulp",
     "start": "node app.js",
     "build": "gulp build",
     "serveprod": "gulp serveprod"
