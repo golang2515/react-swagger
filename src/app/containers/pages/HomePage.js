@@ -3,8 +3,10 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Paper from 'material-ui/Paper';
 import Home from '../../components/pages/Home';
+
 import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
+
 import swaggerHelper from '../../helpers/swaggerHelper';
 
 const styles={
