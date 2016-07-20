@@ -1,8 +1,4 @@
 import React from 'react';
-import Inspector from 'react-json-inspector';
-import JSONTree from 'react-json-tree';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import CardApi from '../api/CardApi';
 import CardApiFull from '../api/CardApiFull';
 
 const styles={
@@ -10,30 +6,11 @@ const styles={
     display:'inline',
     width:'100%',
   },
-  tabs:{
-
-  },
-  mainTab:{
-    backgroundColor:'#FFFFFF',
-    color:'#000000',
-    display:'inline',
-  },
-  jsonTab:{
+  apiAll:{
     display:'flex',
-    padding:15,
-  },
-  apiAllTab:{
-    display:'flex',
-    //flexFlow: 'row wrap',
     flexDirection:'column',
     justifyContent:'space-around',
     padding:10,
-  },
-  apiTab:{
-    display:'flex',
-    flexFlow: 'row wrap',
-    justifyContent:'space-around',
-    padding:15,
   },
 };
 
@@ -74,7 +51,7 @@ class Home extends React.Component {
       <div 
         style={styles.homeContent}>
           <div 
-            style={styles.apiAllTab}>
+            style={styles.apiAll}>
               {this.renderApiFull(apiAll)}
           </div>
       </div>
