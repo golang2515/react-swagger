@@ -41,9 +41,9 @@ export default class NavBar extends React.Component {
               <Card>
                 <CardHeader
                   style={{height:62,backgroundColor:'#eaeaea'}}
-                  title="react-swagger"
+                  title="Api Manager"
                   titleStyle={{fontSize:'14pt',fontWeight:'bold',paddingTop:7}}
-                  avatar="img/logo.png"
+                  avatar="img/api-icon.png"
                 />
               </Card>
               <Menu>

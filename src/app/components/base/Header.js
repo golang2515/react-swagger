@@ -32,7 +32,7 @@ export default class Header extends React.Component {
     return (
       <div style={{paddingLeft:layout.data.paddingLeft}}>
           <AppBar
-            title={(this.props.layout.data.open==true)?"":"Home"}
+            title={(this.props.layout.data.open==true)?"":"Api Manager"}
             zDepth={1}
             onLeftIconButtonTouchTap={this.handleShowHide}
             titleStyle={styles.titleStyle}
