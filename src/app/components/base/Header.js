@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
+import {Config} from '../../helpers/constant';
 
 const styles={
   appBar:{
@@ -32,7 +33,7 @@ export default class Header extends React.Component {
     return (
       <div style={{paddingLeft:layout.data.paddingLeft}}>
           <AppBar
-            title={(this.props.layout.data.open==true)?"":"Api Manager"}
+            title={(this.props.layout.data.open==true)?"":Config.MODULE_NAME}
             zDepth={1}
             onLeftIconButtonTouchTap={this.handleShowHide}
             titleStyle={styles.titleStyle}

@@ -10,6 +10,8 @@ import DebugIcon from 'material-ui/svg-icons/action/code';
 import SettingIcon from 'material-ui/svg-icons/action/settings';
 import {Card, CardHeader} from 'material-ui/Card';
 
+import {Config} from '../../helpers/constant';
+
 
 const styles={
   menuPanel:{
@@ -41,7 +43,7 @@ export default class NavBar extends React.Component {
               <Card>
                 <CardHeader
                   style={{height:62,backgroundColor:'#eaeaea'}}
-                  title="Api Manager"
+                  title={Config.MODULE_NAME}
                   titleStyle={{fontSize:'14pt',fontWeight:'bold',paddingTop:7}}
                   avatar="img/api-icon.png"
                 />

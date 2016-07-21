@@ -3,6 +3,7 @@ import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import Avatar from 'material-ui/Avatar';
+import {Config} from '../../helpers/constant';
 
 const styles={
   appBar:{
@@ -24,7 +25,7 @@ export default class HeaderTop extends React.Component {
     return (
       <div style={styles.appBar}>
           <AppBar
-            title="react-swagger"
+            title={Config.PROJECT_NAME}
           	showMenuIconButton={true}
             style={{height:40,backgroundColor:'#00ACC1'}}
             zDepth={2}

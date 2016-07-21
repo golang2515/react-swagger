@@ -6,6 +6,7 @@ import Paper from 'material-ui/Paper';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import {ContentType} from '../../helpers/constant';
 import _ from 'underscore';
 
 import ApiParam from './ApiParam';
@@ -48,7 +49,7 @@ class CardApiFull extends React.Component {
     let keys = _.keys(api.apiDetail);
     let verb=keys[0].toUpperCase();
     let isPrimary=false;
-    if(verb=="POST")
+    if(verb==ContentType.POST)
       isPrimary=true;
 
     let summary=api.apiDetail[keys[0]].summary;
@@ -60,7 +61,7 @@ class CardApiFull extends React.Component {
           <CardHeader
             subtitle={summary}
             title={apiName}
-            avatar={(verb=="GET") ?"img/verb-get-icon.png":"img/verb-post-icon.png"}
+            avatar={(verb==ContentType.GET) ?"img/verb-get-icon.png":"img/verb-post-icon.png"}
             actAsExpander={true}
       		  showExpandableButton={true}
           />
