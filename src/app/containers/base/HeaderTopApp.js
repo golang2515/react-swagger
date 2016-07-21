@@ -5,10 +5,6 @@ import { bindActionCreators } from 'redux';
 import * as LayoutActions from '../../actions/actions_layout';
 
 class HeaderTopApp extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
 
   constructor(props) {
     super(props);

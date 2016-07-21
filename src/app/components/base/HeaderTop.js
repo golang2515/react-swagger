@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
+import Avatar from 'material-ui/Avatar';
 
 const styles={
   appBar:{
@@ -9,6 +10,8 @@ const styles={
   },
   titleStyle:{
     userSelect: 'none',
+    marginTop:-13,
+    fontSize:'15pt',
   }
 }
 
@@ -21,10 +24,14 @@ export default class HeaderTop extends React.Component {
     return (
       <div style={styles.appBar}>
           <AppBar
-          	showMenuIconButton={false}
-            style={{height:35,backgroundColor:'#00ACC1'}}
+            title="react-swagger"
+          	showMenuIconButton={true}
+            style={{height:40,backgroundColor:'#00ACC1'}}
             zDepth={2}
             titleStyle={styles.titleStyle}
+            iconElementLeft={
+              <Avatar src="img/logo-top.png" style={{backgroundColor:'transperent'}} />
+            }
           />
       </div>
     );

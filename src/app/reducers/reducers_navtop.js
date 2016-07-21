@@ -6,7 +6,7 @@ function navTopReducer(state = {
 	action = null) {
     switch (action.type) {
         case types.SHOW_HIDE_NAVBAR_TOP:
-            return Object.assign({}, state, { top: action.top });
+            return action.top;
         default:
             return state;
     }
