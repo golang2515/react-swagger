@@ -17,6 +17,9 @@ const history = new createBrowserHistory();
 const store = configureStore();
 
 const muiTheme = getMuiTheme({});
+//Custom
+muiTheme.appBar.height=50;
+muiTheme.appBar.padding=20;
 console.log(muiTheme);
 
 injectTapEventPlugin();

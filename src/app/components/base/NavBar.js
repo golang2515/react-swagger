@@ -42,9 +42,9 @@ export default class NavBar extends React.Component {
             <div>
               <Card>
                 <CardHeader
-                  style={{height:62,backgroundColor:'#eaeaea'}}
+                  style={{height:48,backgroundColor:'#eaeaea',paddingTop:5}}
                   title={Config.MODULE_NAME}
-                  titleStyle={{fontSize:'14pt',fontWeight:'bold',paddingTop:7}}
+                  titleStyle={{fontSize:'14pt',fontWeight:'bold',paddingTop:9}}
                   avatar="img/api-icon.png"
                 />
               </Card>

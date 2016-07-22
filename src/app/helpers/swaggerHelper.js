@@ -1,6 +1,38 @@
 import _ from 'underscore';
+import _lodash from 'lodash';
 
 export default class swaggerHelper {
+    static generateApiModel(api) {
+        console.log(api);
+        try {
+            var datas=_lodash.each(api.paths, function(endpoints, path) {
+                _lodash.each(endpoints, function(endpoint, method) {
+                    //console.log(method + " " + path);
+
+                    endpoint.method = method;
+                    endpoint.path = path;
+
+                    _lodash.each(endpoint.tags, function(tag) {
+
+                        var tagDetails = _lodash.find(api.tags, function(t) {
+                            return t.name == tag;
+                        });
+
+                        if (!tagDetails.endpoints)
+                            tagDetails.endpoints = [];
+
+                        tagDetails.endpoints.push(endpoint);
+                    });
+
+                }, this);
+            }, this)
+
+            console.log(datas);
+        } catch (e) {
+            console.log(e);
+            return api;
+        }
+    }
     static generateApiList(jsonList) {
         let results = [];
         if (jsonList == undefined)

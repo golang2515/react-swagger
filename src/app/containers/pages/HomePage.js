@@ -8,6 +8,7 @@ import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
 
 import swaggerHelper from '../../helpers/swaggerHelper';
+import {Config} from '../../helpers/constant';
 
 const styles={
   paperContent:{
@@ -27,7 +28,7 @@ class HomePage extends React.Component {
   }
 
   componentWillMount(){
-      const url="api/swagger.json";
+      const url=Config.SWAGGER_JSON_API;
       this.props.actions.jsonAction.fetchJsonData(url);
   }
 
@@ -42,6 +43,7 @@ class HomePage extends React.Component {
       let paths=this.props.jsonSwagger.data.paths;
       apiList=swaggerHelper.generateApiList(paths);
       apiAll=swaggerHelper.generateApiAll(paths);
+      //let model=swaggerHelper.generateApiModel(this.props.jsonSwagger.data);
     }else{
       return (<div>Loading</div>);
     }

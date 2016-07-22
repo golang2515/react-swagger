@@ -9,6 +9,8 @@ import * as LayoutActions from '../../actions/actions_layout';
 
 import swaggerHelper from '../../helpers/swaggerHelper';
 
+import {Config} from '../../helpers/constant';
+
 const styles={
   paperContent:{
     paddingTop:10,
@@ -23,7 +25,7 @@ class DebugPage extends React.Component {
   }
 
   componentWillMount(){
-      const url="api/swagger.json";
+      const url=Config.SWAGGER_JSON_API;
       this.props.actions.jsonAction.fetchJsonData(url);
   }
 

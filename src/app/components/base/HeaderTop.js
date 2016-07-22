@@ -11,7 +11,7 @@ const styles={
   },
   titleStyle:{
     userSelect: 'none',
-    marginTop:-13,
+    marginTop:-8,
     fontSize:'15pt',
   }
 }
@@ -31,7 +31,7 @@ export default class HeaderTop extends React.Component {
             zDepth={2}
             titleStyle={styles.titleStyle}
             iconElementLeft={
-              <Avatar src="img/logo-top.png" style={{backgroundColor:'transperent'}} />
+              <Avatar src="img/logo-top.png" style={{backgroundColor:'transperent',marginTop:4}} />
             }
           />
       </div>

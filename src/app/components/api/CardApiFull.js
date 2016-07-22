@@ -65,7 +65,7 @@ class CardApiFull extends React.Component {
             actAsExpander={true}
       		  showExpandableButton={true}
           />
-          <CardText expandable={true}>
+          <CardText expandable={true} style={{padding:2,margin:0}}>
               <Tabs>
                 <Tab label="Info">
               		<div style={{padding:5}}>
@@ -99,3 +99,7 @@ class CardApiFull extends React.Component {
 }
 
 export default CardApiFull 
+
+
+
+/*border: '1px solid blue',*/

@@ -2,6 +2,7 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 import Form from 'react-jsonschema';
 import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 const schema = {
   "title": "Basic Demo",
@@ -36,8 +37,13 @@ export default class ApiParam extends React.Component {
 
   formatParam(detail){
 
+    if(detail.parameters==null)
+      return (<div>No param</div>);
+
+    //return (<div>Has param</div>);
+
   	/*if(detail.parameters==null)*/
-  		return {
+/*  		return {
   			schema:{
   				"title": "Basic Demo",
   				"type": "object",
@@ -56,41 +62,39 @@ export default class ApiParam extends React.Component {
   				firstName:'',
   				lastName:'',
   			}
-  		};
+  		};*/
 
-  	/*return (detail.parameters.map(function(param){
+  	return (detail.parameters.map(function(param){
   		console.log(param);
   		if(!param.schema){
 	      	return (
-	      		<div key={param.name} style={{display:'flex',flexFlow:'row wrap',justifyContent:'flex-start'}}>
-		        	<div key={param.name}>{param.name}</div>
-		        	<div key={param.type}>{param.type}</div>
-	        	</div>
-	        )
+	      		<div key={+new Date} style={{display:'flex',flexFlow:'row wrap',justifyContent:'flex-start'}}>
+              <div>
+                <TextField
+                    hintText={param.name}
+                    floatingLabelText={param.name+'('+param.type+')'}
+                    floatingLabelFixed={false}
+                  />
+	        	  </div>
+            </div>
+	        );
 	    }else{
 	    	return (
-	        	<li key={param.name}>
+	        	<li key={+new Date}>
 	        		{param.name} Object
 	        	</li>
 	        )
 	    }
-    }));*/
+    }));
   }
   render() {
-  	//let jsonData=this.formatParam(this.props.detail);
+    console.log(this.props.detail)
     return (
       <Paper style={{padding:25}}>
-		<Form
-		      schema={schema}
-		      formData={formData}
-		      onError={errors => {
-		        console.log(errors);
-		      }}
-		      onSubmit={data => {
-		        console.log(data);
-		      }}
-		    />
-		<RaisedButton label="Try it out!" primary={true} style={{margin: 12}} />
+          <div>
+            {this.formatParam(this.props.detail)}
+          </div>
+		      <RaisedButton label="Try it out!" primary={true} style={{margin: 12}} />
       </Paper>
     );
   }

@@ -24,7 +24,8 @@ class CardApi extends React.Component {
         return (
           <ListItem key={func.apiUrl}
             primaryText={func.apiUrl}
-            style={{textoverflow:'ellipsis'}}
+            style={{overflow: 'hidden', textOverflow: 'ellipsis',border: '1px solid red',padding:2,margin:0}}
+            innerDivStyle={{overflow: 'hidden', textOverflow: 'ellipsis'}}
             leftIcon={<ActionGrade color={pinkA200} />}/>
         )
       }
@@ -35,16 +36,17 @@ class CardApi extends React.Component {
   	let apiName=this.props.apiName;
   	let api=this.props.api;
     return (
-      <Card style={{width:'400px',marginTop:10}}>
+      <Card style={{width:'400px',marginTop:10,border: '1px solid blue'}}>
           <CardHeader
             title={apiName}
             titleStyle={{paddingTop:7}}
             avatar="img/swagger-logo.png"
+            style={{border: '1px solid black'}}
             actAsExpander={true}
       		  showExpandableButton={true}
           />
-          <CardText expandable={true}>
-            <List>
+          <CardText expandable={true} style={{border: '1px solid blue',padding:2,margin:0}}>
+            <List style={{border: '1px solid green',padding:0,margin:0}}>
               {this.renderFunc(api)}
             </List>
           </CardText>
