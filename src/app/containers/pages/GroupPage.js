@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Paper from 'material-ui/Paper';
 import Group from '../../components/pages/Group';
+import HeaderInfo from '../../components/base/HeaderInfo';
 
 import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
@@ -47,6 +48,7 @@ class GroupPage extends React.Component {
 
     return (
       <Paper style={styles.paperContent}>
+          <HeaderInfo data={data} jsonUrl={Config.SWAGGER_JSON_API}/>
           <Group data={data} apiList={apiList}/>
       </Paper>
     );

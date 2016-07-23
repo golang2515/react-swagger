@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Paper from 'material-ui/Paper';
 import Debug from '../../components/pages/Debug';
+import HeaderInfo from '../../components/base/HeaderInfo';
 
 import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
@@ -46,6 +47,7 @@ class DebugPage extends React.Component {
 
       return (
         <Paper style={styles.paperContent}>
+            <HeaderInfo data={data} jsonUrl={Config.SWAGGER_JSON_API}/>
             <Debug data={data} apiList={apiList}/>
         </Paper>
       );

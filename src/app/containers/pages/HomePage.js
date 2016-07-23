@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Paper from 'material-ui/Paper';
 import Home from '../../components/pages/Home';
+import HeaderInfo from '../../components/base/HeaderInfo';
 
 import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
@@ -54,6 +55,7 @@ class HomePage extends React.Component {
 
     return (
       <Paper style={styles.paperContent}>
+          <HeaderInfo data={data} jsonUrl={Config.SWAGGER_JSON_API}/>
           <Home data={data} apiAll={apiAll}/>
       </Paper>
     );
