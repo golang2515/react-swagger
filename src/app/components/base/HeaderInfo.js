@@ -4,7 +4,11 @@ import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import FileFolder from 'material-ui/svg-icons/file/folder';
-
+import ApplicationIcon from 'material-ui/svg-icons/action/home';
+import HostIcon from 'material-ui/svg-icons/action/http';
+import ApiIcon from 'material-ui/svg-icons/action/donut-large';
+import SwaggerIcon from 'material-ui/svg-icons/action/donut-small';
+import JsonIcon from 'material-ui/svg-icons/action/code';
 
 const styles={
 	mainContent:{
@@ -35,8 +39,8 @@ export default class HeaderInfo extends React.Component {
     		<Paper zDepth={2} style={styles.paper}>
       			<List>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<FileFolder />} />}
-				        primaryText="Host"
+				        leftAvatar={<Avatar icon={<ApplicationIcon />} />}
+				        primaryText="Application"
 				        secondaryText={info.title}
 			      	/>
       			</List>
@@ -44,7 +48,7 @@ export default class HeaderInfo extends React.Component {
       		<Paper zDepth={2} style={styles.paper}>
       			<List>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<FileFolder />} />}
+				        leftAvatar={<Avatar icon={<HostIcon />} />}
 				        primaryText="Host"
 				        secondaryText={host}
 			      	/>
@@ -53,7 +57,7 @@ export default class HeaderInfo extends React.Component {
 			<Paper zDepth={2} style={styles.paper}>
       			<List>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<FileFolder />} />}
+				        leftAvatar={<Avatar icon={<ApiIcon />} />}
 				        primaryText="API version"
 				        secondaryText={info.version}
 			      	/>
@@ -62,7 +66,7 @@ export default class HeaderInfo extends React.Component {
       		<Paper zDepth={2} style={styles.paper}>
       			<List>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<FileFolder />} />}
+				        leftAvatar={<Avatar icon={<SwaggerIcon />} />}
 				        primaryText="Swagger version"
 				        secondaryText={swagger}
 			      	/>
@@ -71,7 +75,7 @@ export default class HeaderInfo extends React.Component {
       		<Paper zDepth={2} style={styles.paper}>
       			<List>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<FileFolder />} />}
+				        leftAvatar={<Avatar icon={<JsonIcon />} />}
 				        primaryText="JSON"
 				        secondaryText={this.props.jsonUrl}
 			      	/>
