@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     router: routerStateReducer,
     jsonSwagger: jsonReducer,
     layout: layoutReducer,
-    top:navTopReducer,
+    top: navTopReducer,
 });
 
 export default rootReducer;

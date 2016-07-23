@@ -38,11 +38,11 @@ export default class Header extends React.Component {
             onLeftIconButtonTouchTap={this.handleShowHide}
             titleStyle={styles.titleStyle}
             iconElementRight={
-              <div>
+              <div style={{backgroundColor:'transperent'}}>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
                 <IconButton
-                  style={{color:'#FFFFFF'}}
+                  iconStyle={{color:'#FFFFFF',backgroundColor:'transperent'}}
                   iconClassName="muidocs-icon-custom-github"
                   href="https://github.com/golang2515/react-swagger"
                 />

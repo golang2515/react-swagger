@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/base/Header';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as LayoutActions from '../../actions/actions_layout';
 
@@ -18,14 +18,14 @@ class HeaderApp extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    layout:state.layout
+    layout: state.layout
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions:{
-        layoutAction:bindActionCreators(LayoutActions, dispatch)
+    actions: {
+      layoutAction: bindActionCreators(LayoutActions, dispatch)
     }
   }
 }

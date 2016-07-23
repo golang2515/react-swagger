@@ -19,14 +19,14 @@ class HeaderTopApp extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    layout:state.layout
+    layout: state.layout
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions:{
-        layoutAction:bindActionCreators(LayoutActions, dispatch)
+    actions: {
+      layoutAction: bindActionCreators(LayoutActions, dispatch)
     }
   }
 }

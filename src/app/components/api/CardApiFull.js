@@ -55,7 +55,7 @@ class CardApiFull extends React.Component {
     let summary=api.apiDetail[keys[0]].summary;
     let contenTypes=api.apiDetail[keys[0]].produces;
     let detail=api.apiDetail[keys[0]];
-    //console.log(detail);
+    //console.log(api);
     return (
       <Card style={{marginTop:10}}>
           <CardHeader

@@ -41,12 +41,15 @@ class HomePage extends React.Component {
     let apiAll=[];
     if(this.props.jsonSwagger.data){
       let paths=this.props.jsonSwagger.data.paths;
-      apiList=swaggerHelper.generateApiList(paths);
-      apiAll=swaggerHelper.generateApiAll(paths);
+      let definitions=this.props.jsonSwagger.data.definitions;
+      apiList=swaggerHelper.generateApiList(paths,definitions);
+      apiAll=swaggerHelper.generateApiAll(paths,definitions);
       //let model=swaggerHelper.generateApiModel(this.props.jsonSwagger.data);
     }else{
       return (<div>Loading</div>);
     }
+
+    //console.log(this.props.jsonSwagger.data);
 
     return (
       <Paper style={styles.paperContent}>

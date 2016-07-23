@@ -15,7 +15,7 @@ const createAppStore = compose(
 	applyMiddleware(createLogger())
 )(createStore);
 
-export default function configureStore(initialState){
-	const store = createAppStore(rootReducer, initialState,enhancer);
+export default function configureStore(initialState) {
+	const store = createAppStore(rootReducer, initialState, enhancer);
 	return store;
 };

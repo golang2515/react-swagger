@@ -16,8 +16,8 @@ class NavBarApp extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    layout:state.layout,
-    top:state.top,
+    layout: state.layout,
+    top: state.top,
   };
 }
 

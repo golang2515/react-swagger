@@ -10,5 +10,5 @@ export const ContentType = {
 export const Config = {
     PROJECT_NAME: 'react-swagger',
     MODULE_NAME: 'APIs',
-    SWAGGER_JSON_API:'api/swagger.json',
+    SWAGGER_JSON_API: 'api/swagger-demo3.json',
 }

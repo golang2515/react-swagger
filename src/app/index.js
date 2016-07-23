@@ -18,19 +18,19 @@ const store = configureStore();
 
 const muiTheme = getMuiTheme({});
 //Custom
-muiTheme.appBar.height=50;
-muiTheme.appBar.padding=20;
+muiTheme.appBar.height = 50;
+muiTheme.appBar.padding = 20;
 console.log(muiTheme);
 
 injectTapEventPlugin();
 
 render(
-  <Provider store={store}>
+    <Provider store={store}>
         <MuiThemeProvider muiTheme={muiTheme}>
             <Router history={browserHistory}>
                 {routers}
             </Router>
         </MuiThemeProvider>
-      </Provider>, 
-  document.getElementById('app')
+    </Provider>,
+    document.getElementById('app')
 );
