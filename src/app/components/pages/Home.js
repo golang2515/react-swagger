@@ -20,7 +20,7 @@ class Home extends React.Component {
     super(props);
   }
 
-  renderApi(apiListMap) {
+ /* renderApi(apiListMap) {
     //console.log(apiListMap);
     return (apiListMap.map(function (api) {
       return (
@@ -29,7 +29,7 @@ class Home extends React.Component {
           key={api.apiName}
           api={api}/>)
     }));
-  }
+  }*/
 
   renderApiFull(apiListMap) {
     //console.log(apiListMap);

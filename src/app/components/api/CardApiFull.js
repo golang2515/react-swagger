@@ -9,7 +9,8 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import {ContentType} from '../../helpers/constant';
 import _ from 'underscore';
 
-import ApiParam from './ApiParam';
+import ApiRequest from './ApiRequest';
+import ApiResponse from './ApiResponse';
 
 const styles={
 	card:{
@@ -80,12 +81,17 @@ class CardApiFull extends React.Component {
                 </Tab>
                 <Tab label="Parameters">
                   <div style={{padding:5}}>
-                    <ApiParam detail={detail}/>
+                    <ApiRequest 
+                      detail={detail} 
+                      requestModel={api.requestModel}/>
                   </div>
                 </Tab>
                 <Tab label="Response">
-                  <Paper>
-                  </Paper>
+                  <div style={{padding:5}}>
+                    <ApiResponse 
+                      detail={detail} 
+                      responseModel={api.responseModel}/>
+                  </div>
                 </Tab>
                 <Tab label="Scripts">
                   <Paper>

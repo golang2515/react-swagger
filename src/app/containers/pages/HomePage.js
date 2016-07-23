@@ -37,14 +37,15 @@ class HomePage extends React.Component {
       return (<div>Loading</div>);
 
     let data=this.props.jsonSwagger.data;
-    let apiList=[];
+    //let apiList=[];
     let apiAll=[];
     if(this.props.jsonSwagger.data){
       let paths=this.props.jsonSwagger.data.paths;
       let definitions=this.props.jsonSwagger.data.definitions;
-      apiList=swaggerHelper.generateApiList(paths,definitions);
+      //apiList=swaggerHelper.generateApiList(paths,definitions);
       apiAll=swaggerHelper.generateApiAll(paths,definitions);
-      //let model=swaggerHelper.generateApiModel(this.props.jsonSwagger.data);
+      //console.log(apiList);
+      //console.log(apiAll);
     }else{
       return (<div>Loading</div>);
     }
@@ -53,7 +54,7 @@ class HomePage extends React.Component {
 
     return (
       <Paper style={styles.paperContent}>
-          <Home data={data} apiList={apiList} apiAll={apiAll}/>
+          <Home data={data} apiAll={apiAll}/>
       </Paper>
     );
   }
