@@ -13,7 +13,7 @@ import {Config} from '../../helpers/constant';
 
 const styles={
   paperContent:{
-    paddingTop:10,
+    paddingTop:2,
     backgroundColor:'#eaeaea',
     minHeight:'calc(100vh - 115px)',
   }

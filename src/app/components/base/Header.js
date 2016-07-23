@@ -3,6 +3,8 @@ import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import SearchBar from '../customs/SearchBar';
+import Avatar from 'material-ui/Avatar';
+import SearchIcon from 'material-ui/svg-icons/action/search';
 import {Config} from '../../helpers/constant';
 
 const styles={
@@ -40,6 +42,7 @@ export default class Header extends React.Component {
             titleStyle={styles.titleStyle}
             iconElementRight={
               <div style={{backgroundColor:'transperent'}}>
+                <Avatar size={35} style={{backgroundColor:'transperent'}} icon={<SearchIcon/>}/>
                 <SearchBar/>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>

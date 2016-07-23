@@ -18,6 +18,7 @@ const styles={
     display:'flex',
     flexFlow:'row wrap',
     justifyContent:'flex-start',
+    backgroundColor:'#0033FF',
     width:250,
     position:'relative',
   },
@@ -37,6 +38,7 @@ export default class NavBar extends React.Component {
           width={250} 
           containerStyle={{overflow:'hidden',marginTop: (top==false)?40:0}}
           openSecondary={false} 
+          style={{backgroundColor:'#0033FF'}}
           docked={true}
           open={open}>
             <div>

@@ -31,7 +31,7 @@ class Master extends React.Component {
         paddingRight:0,
     }
     return (
-      <div>
+      <div style={{backgroundColor:'#eaeaea'}}>
           <StickyContainer>
             <HeaderTopApp/>
             <Sticky style={{zIndex: 9999}}>

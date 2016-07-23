@@ -15,7 +15,7 @@ const styles={
 		display: 'flex',
 	    flexDirection: 'row',
 	    justifyContent: 'flex-start',
-	    padding: 10,
+	    padding: 0,
 	},
 	paper:{
 		margin: 10,
