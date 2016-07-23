@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
+import SearchBar from '../customs/SearchBar';
 import {Config} from '../../helpers/constant';
 
 const styles={
@@ -39,6 +40,7 @@ export default class Header extends React.Component {
             titleStyle={styles.titleStyle}
             iconElementRight={
               <div style={{backgroundColor:'transperent'}}>
+                <SearchBar/>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
                 <IconButton
