@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import {pinkA200, transparent} from 'material-ui/styles/colors';
@@ -36,12 +37,15 @@ class CardApi extends React.Component {
   	let apiName=this.props.apiName;
   	let api=this.props.api;
     return (
-      <Card style={{width:'400px',marginTop:10,border: '1px solid blue'}}>
+      <Paper  
+        zDepth={2}
+        style={{width:'400px',marginTop:10}}>
+        <Card>
           <CardHeader
             title={apiName}
             titleStyle={{paddingTop:7}}
             avatar="img/swagger-logo.png"
-            style={{border: '1px solid black'}}
+            style={{border: '1px solid transparent'}}
             actAsExpander={true}
       		  showExpandableButton={true}
           />
@@ -51,6 +55,7 @@ class CardApi extends React.Component {
             </List>
           </CardText>
         </Card>
+      </Paper>
     );
   }
 }

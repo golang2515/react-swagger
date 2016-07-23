@@ -3,7 +3,7 @@
 
 export const ContentType = {
     POST: 'POST',
-    GET: 'GET'
+    GET: 'GET',
 };
 
 

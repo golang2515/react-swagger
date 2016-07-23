@@ -18,7 +18,6 @@ const styles={
     display:'flex',
     flexFlow:'row wrap',
     justifyContent:'flex-start',
-    backgroundColor:'#0033FF',
     width:250,
     position:'relative',
   },

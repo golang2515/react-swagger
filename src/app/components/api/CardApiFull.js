@@ -58,48 +58,50 @@ class CardApiFull extends React.Component {
     let detail=api.apiDetail[keys[0]];
     //console.log(api);
     return (
-      <Card style={{marginTop:10}}>
-          <CardHeader
-            subtitle={summary}
-            title={apiName}
-            avatar={(verb==ContentType.GET) ?"img/verb-get-icon.png":"img/verb-post-icon.png"}
-            actAsExpander={true}
-      		  showExpandableButton={true}
-          />
-          <CardText expandable={true} style={{padding:2,margin:0}}>
-              <Tabs>
-                <Tab label="Info">
-              		<div style={{padding:5}}>
-                    Response type
-                    <DropDownMenu
-                      onChange={this.handleContentChange}
-                      value={this.state.contentType}
-                      openImmediately={false}>
-                        {this.renderContentType(contenTypes)}
-                    </DropDownMenu>
-                  </div>
-                </Tab>
-                <Tab label="Parameters">
-                  <div style={{padding:5}}>
-                    <ApiRequest 
-                      detail={detail} 
-                      requestModel={api.requestModel}/>
-                  </div>
-                </Tab>
-                <Tab label="Response">
-                  <div style={{padding:5}}>
-                    <ApiResponse 
-                      detail={detail} 
-                      responseModel={api.responseModel}/>
-                  </div>
-                </Tab>
-                <Tab label="Scripts">
-                  <Paper>
-                  </Paper>
-                </Tab>
-              </Tabs>
-          </CardText>
-        </Card>
+      <Paper zDepth={2}  style={{marginTop:10}}>
+        <Card>
+            <CardHeader
+              subtitle={summary}
+              title={apiName}
+              avatar={(verb==ContentType.GET) ?"img/verb-get-icon.png":"img/verb-post-icon.png"}
+              actAsExpander={true}
+        		  showExpandableButton={true}
+            />
+            <CardText expandable={true} style={{padding:2,margin:0}}>
+                <Tabs>
+                  <Tab label="Info">
+                		<div style={{padding:5}}>
+                      Response type
+                      <DropDownMenu
+                        onChange={this.handleContentChange}
+                        value={this.state.contentType}
+                        openImmediately={false}>
+                          {this.renderContentType(contenTypes)}
+                      </DropDownMenu>
+                    </div>
+                  </Tab>
+                  <Tab label="Parameters">
+                    <div style={{padding:5}}>
+                      <ApiRequest 
+                        detail={detail} 
+                        requestModel={api.requestModel}/>
+                    </div>
+                  </Tab>
+                  <Tab label="Response">
+                    <div style={{padding:5}}>
+                      <ApiResponse 
+                        detail={detail} 
+                        responseModel={api.responseModel}/>
+                    </div>
+                  </Tab>
+                  <Tab label="Scripts">
+                    <Paper>
+                    </Paper>
+                  </Tab>
+                </Tabs>
+            </CardText>
+          </Card>
+        </Paper>
     );
   }
 }
