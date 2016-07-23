@@ -11,15 +11,16 @@ import SwaggerIcon from 'material-ui/svg-icons/action/donut-small';
 import JsonIcon from 'material-ui/svg-icons/action/code';
 
 const styles={
-	mainContent:{
-		display: 'flex',
-	    flexDirection: 'row',
-	    justifyContent: 'flex-start',
-	    padding: 0,
-	},
+  mainContent:{
+    paddingTop:10,
+    paddingLeft:10,
+    paddingRight:10,
+  },
 	paper:{
-		margin: 10,
-		width:280,
+		  display: 'flex',
+	    flexFlow: 'row wrap',
+	    justifyContent: 'space-around',
+	    padding: 0,
 	}
 }
 
@@ -36,44 +37,28 @@ export default class HeaderInfo extends React.Component {
 
     return (
     	<div style={styles.mainContent}> 
-    		<Paper zDepth={2} style={styles.paper}>
-      			<List>
+    		<Paper zDepth={2}>
+      			<List style={styles.paper}>
       			 	<ListItem
 				        leftAvatar={<Avatar icon={<ApplicationIcon />} />}
 				        primaryText="Application"
 				        secondaryText={info.title}
 			      	/>
-      			</List>
-      		</Paper>
-      		<Paper zDepth={2} style={styles.paper}>
-      			<List>
       			 	<ListItem
 				        leftAvatar={<Avatar icon={<HostIcon />} />}
 				        primaryText="Host"
 				        secondaryText={host}
 			      	/>
-      			</List>
-      		</Paper>
-			<Paper zDepth={2} style={styles.paper}>
-      			<List>
       			 	<ListItem
 				        leftAvatar={<Avatar icon={<ApiIcon />} />}
 				        primaryText="API version"
 				        secondaryText={info.version}
 			      	/>
-      			</List>
-      		</Paper>
-      		<Paper zDepth={2} style={styles.paper}>
-      			<List>
       			 	<ListItem
 				        leftAvatar={<Avatar icon={<SwaggerIcon />} />}
 				        primaryText="Swagger version"
 				        secondaryText={swagger}
 			      	/>
-      			</List>
-      		</Paper>
-      		<Paper zDepth={2} style={styles.paper}>
-      			<List>
       			 	<ListItem
 				        leftAvatar={<Avatar icon={<JsonIcon />} />}
 				        primaryText="JSON"

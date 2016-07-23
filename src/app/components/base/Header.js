@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import SearchBar from '../customs/SearchBar';
 import Avatar from 'material-ui/Avatar';
 import SearchIcon from 'material-ui/svg-icons/action/search';
+import FullScreenIcon from 'material-ui/svg-icons/navigation/fullscreen';
 import {Config} from '../../helpers/constant';
 
 const styles={
@@ -46,6 +47,7 @@ export default class Header extends React.Component {
                 <SearchBar/>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
+                <Avatar size={35} style={{backgroundColor:'transperent',cursor:'pointer'}} icon={<FullScreenIcon/>}/>
                 <IconButton
                   iconStyle={{color:'#FFFFFF',backgroundColor:'transperent'}}
                   iconClassName="muidocs-icon-custom-github"
