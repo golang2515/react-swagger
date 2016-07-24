@@ -1,5 +1,10 @@
 import React from 'react';
 import CardApiFull from '../api/CardApiFull';
+import RaisedButton from 'material-ui/RaisedButton'
+import {deepOrange500} from 'material-ui/styles/colors'
+import Message from 'material-ui/svg-icons/communication/message'
+import ReactMaterialUiNotifications from 'react-materialui-notifications'
+import moment from 'moment'
 
 const styles = {
   homeContent: {
@@ -15,9 +20,32 @@ const styles = {
 };
 
 class Home extends React.Component {
+  state = {
+    Notifications: [],
+    count: 0
+  }
 
   constructor(props) {
     super(props);
+  }
+
+  showNotification = () => {
+    let tempNotifications = this.state.Notifications
+    tempNotifications.push(
+      {
+        title: 'Title',
+        additionalText: `Some message to be displayed ${this.state.count}`,
+        icon: <Message />,
+        iconBadgeColor: deepOrange500,
+        autoHide:5000,
+        overflowText: "joe@gmail.com",
+        timestamp: moment().format('h:mm A')
+      }
+    )
+    this.setState({
+      Notifications: tempNotifications,
+      count: ++this.state.count
+    })
   }
 
   renderApiFull(apiListMap) {
@@ -37,10 +65,19 @@ class Home extends React.Component {
     return (
       <div
         style={styles.homeContent}>
+        <RaisedButton
+          style={{display:'none'}}
+              label="Show Notification"
+              onTouchTap={this.showNotification}
+            />
         <div
           style={styles.apiAll}>
           {this.renderApiFull(apiAll) }
         </div>
+        <ReactMaterialUiNotifications
+            desktop={true}
+            children={this.state.Notifications}
+          />
       </div>
     );
   }
