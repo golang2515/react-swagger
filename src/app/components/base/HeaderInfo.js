@@ -32,7 +32,7 @@ export default class HeaderInfo extends React.Component {
 
   render() {
   	let {host,info,swagger}=this.props.data;
-  	if(info==null || info==undefined)
+  	if(!info)
   		info={version:'',title:''}
 
     return (

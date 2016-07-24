@@ -36,11 +36,9 @@ class DebugPage extends React.Component {
 
       let data=this.props.jsonSwagger.data;
       let apiList=[];
-      //let apiAll=[];
       if(this.props.jsonSwagger.data){
         let paths=this.props.jsonSwagger.data.paths;
         apiList=swaggerHelper.generateApiList(paths);
-        //apiAll=swaggerHelper.generateApiAll(paths);
       }else{
         return (<div>Loading</div>);
       }
