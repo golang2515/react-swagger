@@ -6,11 +6,13 @@ import SearchBar from '../customs/SearchBar';
 import Avatar from 'material-ui/Avatar';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 import FullScreenIcon from 'material-ui/svg-icons/navigation/fullscreen';
-import {Config} from '../../helpers/constant';
+import FontIcon from 'material-ui/FontIcon';
+
+import {Config} from '../../config/constant';
 
 const styles={
   appBar:{
-    paddingLeft:250,
+    paddingLeft:Config.LAYOUT.PADDING_LEFT,
   },
   titleStyle:{
     userSelect: 'none',
@@ -27,7 +29,7 @@ export default class Header extends React.Component {
     let open=!this.props.layout.data.open;
     let layoutNew={
       open:open,
-      paddingLeft:open==true?250:0
+      paddingLeft:open==true?Config.LAYOUT.PADDING_LEFT:0
     };
     this.props.layoutAction.showHideNavBar(layoutNew);
   }
@@ -47,7 +49,10 @@ export default class Header extends React.Component {
                 <SearchBar/>
                 <FlatButton label="Token"  style={{color:'#FFFFFF'}}/>
                 <FlatButton label="Document"  style={{color:'#FFFFFF'}}/>
-                <Avatar size={35} style={{backgroundColor:'transperent',cursor:'pointer'}} icon={<FullScreenIcon/>}/>
+                <Avatar 
+                  size={35} 
+                  style={{backgroundColor:'transperent',cursor:'pointer'}} 
+                  icon={<FullScreenIcon/>}/>
                 <IconButton
                   iconStyle={{color:'#FFFFFF',backgroundColor:'transperent'}}
                   iconClassName="muidocs-icon-custom-github"

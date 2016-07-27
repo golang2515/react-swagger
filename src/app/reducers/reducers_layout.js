@@ -1,9 +1,10 @@
 import * as types from '../actions/actionTypes';
+import {Config} from '../config/constant';
 
 function layoutReducer(state = {
     data: {
         open: true,
-        paddingLeft: 250
+        paddingLeft: Config.LAYOUT.PADDING_LEFT
     }
 },
     action = null) {

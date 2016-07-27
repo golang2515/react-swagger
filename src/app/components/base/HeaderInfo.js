@@ -40,27 +40,27 @@ export default class HeaderInfo extends React.Component {
     		<Paper zDepth={2}>
       			<List style={styles.paper}>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<ApplicationIcon />} />}
+				        leftAvatar={<Avatar style={{backgroundColor:'#ff5722'}} icon={<ApplicationIcon />} />}
 				        primaryText="Application"
 				        secondaryText={info.title}
 			      	/>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<HostIcon />} />}
+				        leftAvatar={<Avatar style={{backgroundColor:'#673ab7'}} icon={<HostIcon />} />}
 				        primaryText="Host"
 				        secondaryText={host}
 			      	/>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<ApiIcon />} />}
+				        leftAvatar={<Avatar style={{backgroundColor:'#4CAF50'}} icon={<ApiIcon />} />}
 				        primaryText="API version"
 				        secondaryText={info.version}
 			      	/>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<SwaggerIcon />} />}
+				        leftAvatar={<Avatar style={{backgroundColor:'#3F51B5'}} icon={<SwaggerIcon />} />}
 				        primaryText="Swagger version"
 				        secondaryText={swagger}
 			      	/>
       			 	<ListItem
-				        leftAvatar={<Avatar icon={<JsonIcon />} />}
+				        leftAvatar={<Avatar style={{backgroundColor:'#009688'}} icon={<JsonIcon />} />}
 				        primaryText="JSON"
 				        secondaryText={this.props.jsonUrl}
 			      	/>

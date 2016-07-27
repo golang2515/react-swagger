@@ -6,7 +6,7 @@ import Paper from 'material-ui/Paper';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import {ContentType} from '../../helpers/constant';
+import {ContentType} from '../../config/constant';
 import _ from 'underscore';
 
 import ApiRequest from './ApiRequest';
@@ -58,7 +58,7 @@ class CardApiFull extends React.Component {
     let detail=api.apiDetail[keys[0]];
     //console.log(api);
     return (
-      <Paper zDepth={2}  style={{marginTop:10}}>
+      <Paper zDepth={2}  style={{marginTop:10}} rounded={true}>
         <Card>
             <CardHeader
               subtitle={summary}

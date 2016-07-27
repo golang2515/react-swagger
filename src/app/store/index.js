@@ -12,7 +12,7 @@ const enhancer = handleTransitions(history)
 
 const createAppStore = compose(
 	applyMiddleware(thunkMiddleware),
-	applyMiddleware(createLogger())
+	//applyMiddleware(createLogger())
 )(createStore);
 
 export default function configureStore(initialState) {

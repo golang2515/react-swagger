@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PersonalTheme from './themes/personal';
 
 import routers from './router/routes'
 import configureStore from './store';
@@ -16,11 +17,11 @@ import configureStore from './store';
 const history = new createBrowserHistory();
 const store = configureStore();
 
-const muiTheme = getMuiTheme({});
+const muiTheme = getMuiTheme(PersonalTheme);//getMuiTheme({});
 //Custom
 muiTheme.appBar.height = 50;
 muiTheme.appBar.padding = 20;
-console.log(muiTheme);
+//console.log(muiTheme);
 
 injectTapEventPlugin();
 
@@ -34,4 +35,3 @@ render(
     </Provider>,
     document.getElementById('app')
 );
-

@@ -15,7 +15,7 @@ export default class SearchBar extends React.Component {
       	rounded={true}>
       	<TextField 
           name="txtSearchBar"
-      		style={{paddingLeft:7,height:30,fontWeight:'bold'}}
+      		style={{paddingLeft:7,height:30,fontWeight:'normal'}}
       		hintText=""
       		underlineShow={false}
       		fullWidth={false}/>

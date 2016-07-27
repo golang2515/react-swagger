@@ -8,9 +8,9 @@ import HeaderInfo from '../../components/base/HeaderInfo';
 import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
 
-import swaggerHelper from '../../helpers/swaggerHelper';
+import swaggerHelper from '../../utils/swaggerHelper';
 
-import {Config} from '../../helpers/constant';
+import {Config} from '../../config/constant';
 
 const styles={
   paperContent:{
@@ -39,7 +39,8 @@ class GroupPage extends React.Component {
     let apiList=[];
     if(this.props.jsonSwagger.data){
       let paths=this.props.jsonSwagger.data.paths;
-      apiList=swaggerHelper.generateApiList(paths);
+      let definitions=this.props.jsonSwagger.data.definitions;
+      apiList=swaggerHelper.generateApiList(paths,definitions);
     }else{
       return (<div>Loading</div>);
     }
