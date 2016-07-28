@@ -8,7 +8,7 @@ import HeaderInfo from '../../components/base/HeaderInfo';
 import * as JsonActions from '../../actions/actions_json';
 import * as LayoutActions from '../../actions/actions_layout';
 
-import {Model,addJsonCode} from '../../libs/Model';
+import {Model,ModelHelper} from '../../libs/Model';
 
 import swaggerHelper from '../../utils/swaggerHelper';
 import {Config} from '../../config/constant';
@@ -31,27 +31,26 @@ class HomePage extends React.Component {
   }
 
   componentWillMount(){
-      console.log("componentWillMount HomePage");
+      //console.log("componentWillMount HomePage");
       const url=Config.SWAGGER_JSON_API;
       this.props.actions.jsonAction.fetchJsonData(url);
   }
 
   render() {
 
-    let models=[
+   /* let models=[
       new Model("Id","integer", true),
       new Model("UserName","string", false),
       new Model("Password","string", false),
       new Model("CreatedDate","date", false),
       new Model("LastLoginDate","date-time", false),
+      new Model("Order",[
+          new Model("OrderId","integer", true),
+          new Model("OrderName","string", false),
+        ],false),
     ];
-    var modelMaps = models.map(function(el,i) {
-      if(i==0)
-        return '\t'+el.toJson();
-      else
-        return '\n\t'+el.toJson();
-    });
-    console.log(addJsonCode(modelMaps.toString()));
+    let modelHeleper=new ModelHelper(models);
+    console.log(modelHeleper.toString());*/
 
 
     if(!this.props.jsonSwagger)

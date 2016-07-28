@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import AppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
@@ -27,7 +27,7 @@ export default class HeaderTop extends React.Component {
           <AppBar
             title={Config.PROJECT_NAME}
           	showMenuIconButton={true}
-            style={{height:Config.LAYOUT.HEADERTOP.HEIGHT,backgroundColor:'#00ACC1'}}
+            style={{height:Config.LAYOUT.HEADER_TOP.HEIGHT,backgroundColor:'#00ACC1'}}
             zDepth={2}
             titleStyle={styles.titleStyle}
             iconElementLeft={

@@ -11,21 +11,19 @@ export default class ApiParam extends React.Component {
     super(props);
   }
 
-  renderResponseModel(res){
+  renderResponseModel(detail,data){
     //console.log(req)
     return (<div>
-      <Inspector data={res}/>
+      <Inspector data={detail}/>
     </div>);
   }
 
   render() {
+    let {detail,data}=this.props;
     return (
       <Paper style={{ padding: 25 }}>
         <div>
-          {this.renderResponseModel(this.props.responseModel) }
-        </div>
-        <div>
-          <JSONViewer json={this.props.responseModel}></JSONViewer>
+          {this.renderResponseModel(detail,data) }
         </div>
       </Paper>
     );

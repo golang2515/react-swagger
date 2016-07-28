@@ -1,11 +1,37 @@
-export  class Model {
+export class Model {
     constructor(key, type, required) {
         this.key = key;
         this.type = type;
         this.required = required;
     }
     toJson() {
+        //console.log(this.key,this.type);
+        /*        if(Array.isArray(this.type)){
+                    var jsonOut="";
+                    for(let i=0;i<this.type.length;i++){
+                        jsonOut+= this.type[i].toJson();
+                    }
+                    return this.key+':'+addJsonCode(jsonOut);
+                    //return addDubleCode(this.key) + ':' + getSampleValue(this.type);
+                }
+                else{*/
         return addDubleCode(this.key) + ':' + getSampleValue(this.type);
+        //}
+    }
+}
+
+export class ModelHelper {
+    constructor(items) {
+        this.items = items;
+    }
+    toString() {
+        var jsonMaps = this.items.map(function(el, i) {
+            if (i == 0)
+                return '\t' + el.toJson();
+            else
+                return '\n\t' + el.toJson();
+        });
+        return addJsonCode(jsonMaps.toString());
     }
 }
 
@@ -42,4 +68,7 @@ export function addDubleCode(input) {
 
 export function addJsonCode(input) {
     return `{\n${input}\n}`;
+}
+export function addJsonArrayCode(input) {
+    return `[\n${input}\n]`;
 }

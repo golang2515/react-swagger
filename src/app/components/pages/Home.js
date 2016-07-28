@@ -48,13 +48,14 @@ class Home extends React.Component {
     })
   }
 
-  renderApiFull(apiListMap) {
+  renderApiFull(apiListMap,data) {
     //console.log(apiListMap);
     return (apiListMap.map(function (api) {
       return (
         <CardApiFull
           apiName={api.apiName}
           key={api.apiName}
+          data={data}
           api={api}/>)
     }));
   }
@@ -72,7 +73,7 @@ class Home extends React.Component {
             />
         <div
           style={styles.apiAll}>
-          {this.renderApiFull(apiAll) }
+          {this.renderApiFull(apiAll,data) }
         </div>
         <ReactMaterialUiNotifications
             desktop={true}

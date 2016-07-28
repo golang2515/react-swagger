@@ -45,6 +45,7 @@ class CardApiFull extends React.Component {
   }
 
   render() {
+    let data=this.props.data;
   	let apiName=this.props.apiName;
   	let api=this.props.api;
     let keys = _.keys(api.apiDetail);
@@ -84,14 +85,14 @@ class CardApiFull extends React.Component {
                     <div style={{padding:5}}>
                       <ApiRequest 
                         detail={detail} 
-                        requestModel={api.requestModel}/>
+                        data={data}/>
                     </div>
                   </Tab>
                   <Tab label="Response">
                     <div style={{padding:5}}>
                       <ApiResponse 
                         detail={detail} 
-                        responseModel={api.responseModel}/>
+                        data={data}/>
                     </div>
                   </Tab>
                   <Tab label="Scripts">

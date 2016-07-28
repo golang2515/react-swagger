@@ -35,7 +35,7 @@ export default class NavBar extends React.Component {
       <div style={styles.menuPanel}>
         <Drawer 
           width={Config.LAYOUT.PADDING_LEFT} 
-          containerStyle={{overflow:'hidden',marginTop: (top==false)?Config.LAYOUT.HEADERTOP.HEIGHT:0}}
+          containerStyle={{overflow:'hidden',marginTop: (top==false)?Config.LAYOUT.HEADER_TOP.HEIGHT:0}}
           openSecondary={false} 
           style={{backgroundColor:'#0033FF'}}
           docked={true}

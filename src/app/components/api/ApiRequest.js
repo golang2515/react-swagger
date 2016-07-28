@@ -27,7 +27,7 @@ export default class ApiRequest extends React.Component {
     }));
   }
 
-  renderObjectRequest(req){
+  renderObjectRequest_Backup(req){
     //TODO: Refactor
     if(!req.request.models>0)
       return "{\n}";
@@ -42,8 +42,16 @@ export default class ApiRequest extends React.Component {
     json=json+"}\n"
     return json;
   }
+  renderObjectRequest(req){
+      if(!req.request.models)
+        return "{}";
+      if(req.request.models.length>0)
+        return JSON.stringify(req.request.models[0]);
+      else
+        return "{}";
+  }
 
-  renderRequestModel(req){
+  renderRequestModel_Backup(req){
     //console.log(req)
     if(!req.hasParam){
       return (<h2>No Parameters</h2>);
@@ -63,14 +71,19 @@ export default class ApiRequest extends React.Component {
     }
   }
 
+  renderRequestModel(detail,data){
+    //console.log(req)
+    return (<div>
+      <Inspector data={detail}/>
+    </div>);
+  }
+
   render() {
+    let {detail,data}=this.props;
     return (
       <Paper style={{ padding: 25 }}>
         <div>
-          {this.renderRequestModel(this.props.requestModel) }
-        </div>
-        <div>
-          <JSONViewer json={this.props.requestModel}></JSONViewer>
+          {this.renderRequestModel(detail,data) }
         </div>
         <RaisedButton
           label='Try it out!'

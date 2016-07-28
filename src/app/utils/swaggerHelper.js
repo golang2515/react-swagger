@@ -98,6 +98,9 @@ export function generateRequestModel(endpoint, detail, definitions, funcApi) {
             models: [],
         },
     };
+    return result;
+
+
     if (funcApi.parameters === null || funcApi.parameters === undefined) {
         return result;
     }
@@ -174,6 +177,10 @@ export function getModel(refName, definitions) {
 
 export function generateResponseModel(endpoint, detail, definitions, funcApi) {
     let results = [];
+
+    return results;
+
+    
     if (funcApi.responses === null || funcApi.responses === undefined) {
         return result;
     }

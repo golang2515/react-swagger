@@ -7,6 +7,8 @@ import HeaderTopApp from './base/HeaderTopApp';
 import NavBarApp from './base/NavBarApp';
 import { bindActionCreators } from 'redux';
 import * as NavTopActions from '../actions/actions_navtop';
+import {Config} from './../config/constant';
+
 
 let styles={
   containner:{
@@ -22,7 +24,8 @@ class Master extends React.Component {
   }
 
   handleStickyNavBarStateChange(e){
-    this.props.actions.navTopActions.showHideNavTop(e);
+    if(Config.LAYOUT.SHOW_TOP)
+      this.props.actions.navTopActions.showHideNavTop(e);
   }
 
   render() {
@@ -30,10 +33,12 @@ class Master extends React.Component {
         paddingLeft:this.props.layout.data.paddingLeft,
         paddingRight:0,
     }
+    let headerTop=(Config.LAYOUT.SHOW_TOP)?<HeaderTopApp/>:null;
     return (
+
       <div style={{backgroundColor:'#eaeaea'}}>
           <StickyContainer>
-            <HeaderTopApp/>
+            {headerTop}
             <Sticky style={{zIndex: 9999}}>
               <HeaderApp/>
             </Sticky>
