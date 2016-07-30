@@ -10,7 +10,7 @@ export const ContentType = {
 export const Config = {
     PROJECT_NAME: 'React-Swagger',
     MODULE_NAME: 'APIs',
-    SWAGGER_JSON_API: 'api/swagger-podium.json',
+    SWAGGER_JSON_API: 'api/swagger-navigo.json',
     POWERED_BY: 'golang2515@gmail.com',
     GIT_URL: '',
     LAYOUT: {

@@ -40,7 +40,7 @@ export default class Header extends React.Component {
       <div style={{paddingLeft:layout.data.paddingLeft}}>
           <AppBar
             title={(this.props.layout.data.open==true)?"":Config.MODULE_NAME}
-            zDepth={1}
+            zDepth={2}
             onLeftIconButtonTouchTap={this.handleShowHide}
             titleStyle={styles.titleStyle}
             iconElementRight={

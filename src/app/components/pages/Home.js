@@ -5,6 +5,10 @@ import {deepOrange500} from 'material-ui/styles/colors'
 import Message from 'material-ui/svg-icons/communication/message'
 import ReactMaterialUiNotifications from 'react-materialui-notifications'
 import moment from 'moment'
+//import poser from 'swagger-poser';
+/*import Highlight  from 'react-highlight';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { agate } from 'react-syntax-highlighter/dist/styles';*/
 
 const styles = {
   homeContent: {
@@ -63,6 +67,12 @@ class Home extends React.Component {
   render() {
     const data = this.props.data;
     const apiAll = this.props.apiAll;
+    //let sampleJson='';
+    //if(apiAll.length>0){
+        //let generator = poser.from(data);
+        //let sample = generator.generate('UserModel');
+        //sampleJson =JSON.stringify(sample, null, 2);
+    //}
     return (
       <div
         style={styles.homeContent}>
@@ -84,3 +94,11 @@ class Home extends React.Component {
   }
 }
 export default Home;
+
+
+/*
+          <div>
+            <Highlight className='json'>
+              {sampleJson}
+            </Highlight>
+          </div>*/

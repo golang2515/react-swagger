@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Setting from '../../components/pages/Setting';
 export default class SettingPage extends React.Component {
 
   constructor(props) {
@@ -8,7 +8,9 @@ export default class SettingPage extends React.Component {
 
   render() {
     return (
-      <div>SettingPage</div>
+      <div>
+      	<Setting/>
+      </div>
     );
   }
 }
