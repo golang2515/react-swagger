@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.use(express.static('build'));
-app.use("/css/*", express.static(__dirname + '/css'));
+
 
 app.get('/*', function(req, res) {
 	console.log(req)
