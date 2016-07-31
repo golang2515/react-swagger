@@ -15,7 +15,7 @@ export const Config = {
     GIT_URL: '',
     LAYOUT: {
         PADDING_LEFT: 250,
-        SHOW_TOP: false,
+        SHOW_TOP: true,
         HEADER_TOP: {
             HEIGHT: 40,
         },
