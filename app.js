@@ -4,6 +4,8 @@ var app = express();
 app.use(express.static('build'));
 
 app.get('/*', function(req, res) {
+	console.log(req)
+	res.set('Content-Type', 'text/html');
     res.sendFile(__dirname + "/build/" + "index.html");
 });
 var port = process.env.PORT || 8000;
